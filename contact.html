@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis gratuit - Externalisation service client | VOC-Call</title>
+    <meta name="description" content="Demandez votre devis gratuit pour externalisation service client. VOC-Call, centre de contact français expert. Contactez-nous pour télésecrétariat, permanence téléphonique et prospection.">
+    <meta name="keywords" content="devis gratuit, externalisation service client, centre de contact, télésecrétariat, permanence téléphonique, prospection">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KMNGSGF5WN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KMNGSGF5WN');
+</script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo-voc-call.png" alt="VOC-Call Logo" />
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">Qui sommes-nous</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/telesecretariat.html">Télésecrétariat</a></li>
+                                <li><a href="services/permanence.html">Permanence téléphonique</a></li>
+                                <li><a href="services/service-client.html">Service client</a></li>
+                                <li><a href="services/prospection.html">Prospection commerciale</a></li>
+                                <li><a href="services/back-office.html">Back-office</a></li>
+                                <li><a href="services/helpdesk.html">Support Informatique</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="testimonials.html" class="nav-link">Témoignages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="careers.html" class="nav-link">Devenir téléconseiller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link active">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Devis gratuit - <span class="highlight">Externalisation service client</span>
+                </h1>
+                <p class="hero-description">
+                    Nos experts sont à votre écoute pour vous accompagner dans votre projet de relation client. 
+                    Demandez un devis gratuit et découvrez nos solutions personnalisées.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact-form" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero/hero-contact.jpg" alt="Devis gratuit externalisation service client - Équipe VOC-Call centre de contact" class="hero-img" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>contact@voc-call.fr</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adresse</h3>
+                    <p>2 place Jean V<br>44000 Nantes, France</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi<br>9h00 - 18h00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 class="section-title">Demandez votre devis gratuit</h2>
+                    <p class="section-description">
+                        Remplissez le formulaire ci-dessous et notre équipe vous contactera dans les plus brefs délais
+                    </p>
+                </div>
+                <form class="contact-form" id="contact-form-element">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Société *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">Nom du contact *</label>
+                            <input type="text" id="contact-person" name="contact-person" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service souhaité *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Sélectionnez un service</option>
+                            <option value="telesecretariat">Télésecrétariat</option>
+                            <option value="permanence">Permanence téléphonique</option>
+                            <option value="service-client">Service client</option>
+                            <option value="prospection">Prospection commerciale</option>
+                            <option value="back-office">Back-office</option>
+                            <option value="helpdesk">Support Informatique</option>
+                            <option value="multiple">Plusieurs services</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-size">Taille de l'entreprise</label>
+                        <select id="company-size" name="company-size">
+                            <option value="">Sélectionnez la taille</option>
+                            <option value="1-10">1-10 salariés</option>
+                            <option value="11-50">11-50 salariés</option>
+                            <option value="51-200">51-200 salariés</option>
+                            <option value="201-500">201-500 salariés</option>
+                            <option value="500+">500+ salariés</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget estimé (optionnel)</label>
+                        <select id="budget" name="budget">
+                            <option value="">Sélectionnez un budget</option>
+                            <option value="<1000">Moins de 1 000€/mois</option>
+                            <option value="1000-5000">1 000€ - 5 000€/mois</option>
+                            <option value="5000-10000">5 000€ - 10 000€/mois</option>
+                            <option value="10000-25000">10 000€ - 25 000€/mois</option>
+                            <option value="25000+">Plus de 25 000€/mois</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Délai de mise en œuvre souhaité</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Sélectionnez un délai</option>
+                            <option value="immediate">Immédiat</option>
+                            <option value="1-month">Dans 1 mois</option>
+                            <option value="2-3-months">Dans 2-3 mois</option>
+                            <option value="6-months">Dans 6 mois</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet et vos besoins..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo">
+                            <img src="images/logo-voc-call.png" alt="VOC-Call Logo" />
+                        </a>
+                    </div>
+                    <p class="footer-description">
+                        Votre partenaire de confiance pour la relation client. 
+                        Des solutions personnalisées pour votre réussite.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services/telesecretariat.html">Télésecrétariat</a></li>
+                        <li><a href="services/permanence.html">Permanence téléphonique</a></li>
+                        <li><a href="services/service-client.html">Service client</a></li>
+                        <li><a href="services/prospection.html">Prospection</a></li>
+                        <li><a href="services/back-office.html">Back-office</a></li>
+                        <li><a href="services/helpdesk.html">Support IT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Entreprise</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="testimonials.html">Témoignages</a></li>
+                        <li><a href="careers.html">Devenir téléconseiller</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>2 place Jean V<br>44000 Nantes, France</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@voc-call.fr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2024 VOC-Call. Tous droits réservés.
+                    </p>
+                    <div class="footer-legal">
+                        <a href="legal/mentions-legales.html">Mentions légales</a>
+                        <a href="legal/politique-confidentialite.html">Politique de confidentialité</a>
+                        <a href="legal/cookies.html">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>Utilisation des cookies</h4>
+                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre utilisation des cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-outline" id="cookie-decline">Refuser</button>
+                <button class="btn btn-primary" id="cookie-accept">Accepter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/header-cleanup.js"></script>
+</body>
+</html>
+
+
+

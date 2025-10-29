@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Badge Décalé à Droite - VOC-Call</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0e4580 0%, #d03840 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        .section.success {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .section.info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+        }
+        .section.warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+        }
+        .section.primary {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+        .correction-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .correction-item .icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .before, .after {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .before {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        .after {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid;
+        }
+        .alert-success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        .alert-info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+        .demo-badge-centered {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e4580 0%, #d03840 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            margin: 10px 0;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(14, 69, 128, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+        .demo-badge-right {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e4580 0%, #d03840 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            margin: 10px 0;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(14, 69, 128, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            margin-left: auto;
+            margin-right: 0;
+            width: fit-content;
+        }
+        .demo-container {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin: 10px 0;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>➡️ Badge Décalé à Droite</h1>
+            <p>VOC-Call - Repositionnement du badge "15 ans d'expérience" vers la droite</p>
+        </div>
+        
+        <div class="content">
+            <!-- Résumé des corrections -->
+            <div class="section success">
+                <h3>✅ Badge Maintenant Décalé à Droite</h3>
+                <p>Le badge "15 ans d'expérience" est maintenant décalé vers la droite comme demandé.</p>
+            </div>
+
+            <!-- Détail des corrections -->
+            <div class="section info">
+                <h3>🔧 Corrections Appliquées</h3>
+                
+                <div class="correction-item">
+                    <span class="icon">➡️</span>
+                    <div>
+                        <strong>1. Décalage vers la droite</strong><br>
+                        <em>Problème :</em> Le badge était centré<br>
+                        <em>Solution :</em> Changement de margin-left: auto et margin-right: 0
+                    </div>
+                </div>
+
+                <div class="correction-item">
+                    <span class="icon">📐</span>
+                    <div>
+                        <strong>2. Positionnement optimal</strong><br>
+                        <em>Problème :</em> Le badge n'était pas dans la bonne position<br>
+                        <em>Solution :</em> Alignement à droite pour un meilleur équilibre visuel
+                    </div>
+                </div>
+
+                <div class="correction-item">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <strong>3. Script JavaScript mis à jour</strong><br>
+                        <em>Problème :</em> Risque que les styles ne s'appliquent pas<br>
+                        <em>Solution :</em> Script qui force le décalage vers la droite
+                    </div>
+                </div>
+
+                <div class="correction-item">
+                    <span class="icon">📱</span>
+                    <div>
+                        <strong>4. Responsive maintenu</strong><br>
+                        <em>Problème :</em> Risque de débordement sur mobile<br>
+                        <em>Solution :</em> Le décalage s'adapte automatiquement
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparaison visuelle -->
+            <div class="section primary">
+                <h3>👁️ Comparaison Visuelle</h3>
+                <div class="before-after">
+                    <div class="before">
+                        <h4>❌ Avant - Centré</h4>
+                        <div class="demo-container" style="text-align: center;">
+                            <div class="demo-badge-centered">15 ans d'expérience</div>
+                            <h3 style="margin: 20px 0;">Centre de contact<br>Multicanal en France</h3>
+                            <p style="margin: 20px 0;">La voix de vos clients confiée à des experts de la relation client.</p>
+                            <button style="background: #0e4580; color: white; padding: 12px 24px; border-radius: 8px; border: none; font-size: 1rem;">Demander un devis</button>
+                        </div>
+                        <ul>
+                            <li>Badge centré</li>
+                            <li>Titre centré</li>
+                            <li>Bouton centré</li>
+                            <li>Tout aligné au centre</li>
+                        </ul>
+                    </div>
+                    <div class="after">
+                        <h4>✅ Après - Badge Décalé à Droite</h4>
+                        <div class="demo-container" style="text-align: left;">
+                            <div style="text-align: right;">
+                                <div class="demo-badge-right">15 ans d'expérience</div>
+                            </div>
+                            <h3 style="margin: 20px 0; text-align: center;">Centre de contact<br>Multicanal en France</h3>
+                            <p style="margin: 20px 0; text-align: center;">La voix de vos clients confiée à des experts de la relation client.</p>
+                            <div style="text-align: center;">
+                                <button style="background: #0e4580; color: white; padding: 12px 24px; border-radius: 8px; border: none; font-size: 1rem;">Demander un devis</button>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>Badge décalé à droite</li>
+                            <li>Titre centré</li>
+                            <li>Bouton centré</li>
+                            <li>Équilibre visuel amélioré</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code des corrections -->
+            <div class="section warning">
+                <h3>💻 Code des Corrections</h3>
+                
+                <h4>CSS - Styles du badge décalé à droite :</h4>
+                <div class="code-block">
+.hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-red) 100%);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    border: none;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(14, 69, 128, 0.3);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content;
+}
+                </div>
+
+                <h4>JavaScript - Script de vérification :</h4>
+                <div class="code-block">
+if (heroBadge) {
+    heroBadge.style.background = 'linear-gradient(135deg, #0e4580 0%, #d03840 100%)';
+    heroBadge.style.color = '#ffffff';
+    heroBadge.style.padding = '0.75rem 1.5rem';
+    heroBadge.style.borderRadius = '25px';
+    heroBadge.style.fontSize = '1rem';
+    heroBadge.style.fontWeight = '600';
+    heroBadge.style.boxShadow = '0 4px 15px rgba(14, 69, 128, 0.3)';
+    heroBadge.style.marginLeft = 'auto';
+    heroBadge.style.marginRight = '0';
+    heroBadge.style.width = 'fit-content';
+}
+                </div>
+            </div>
+
+            <!-- Résultats -->
+            <div class="section success">
+                <h3>🎯 Résultats</h3>
+                
+                <div class="alert alert-success">
+                    <strong>➡️ Décalage parfait :</strong> Le badge est maintenant décalé vers la droite comme demandé
+                </div>
+                
+                <div class="alert alert-info">
+                    <strong>📐 Équilibre visuel :</strong> Le badge crée un équilibre visuel avec les autres éléments
+                </div>
+                
+                <div class="alert alert-success">
+                    <strong>⚡ Performance maintenue :</strong> Script de vérification pour garantir le positionnement
+                </div>
+                
+                <div class="alert alert-info">
+                    <strong>📱 Responsive adaptatif :</strong> Le décalage s'adapte automatiquement sur tous les écrans
+                </div>
+            </div>
+
+            <!-- Instructions de test -->
+            <div class="section warning">
+                <h3>🧪 Comment Vérifier le Décalage</h3>
+                <p>Pour confirmer que le badge est maintenant décalé vers la droite :</p>
+                
+                <ol>
+                    <li><strong>Position :</strong> Le badge doit être décalé vers la droite</li>
+                    <li><strong>Espacement :</strong> Il doit y avoir un espace à gauche du badge</li>
+                    <li><strong>Équilibre :</strong> Le badge doit créer un équilibre visuel</li>
+                    <li><strong>Responsive :</strong> Testez sur différentes tailles d'écran</li>
+                    <li><strong>Console :</strong> Vérifiez les messages de confirmation dans la console</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation d'entrée pour les éléments
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.correction-item');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
+
+

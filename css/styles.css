@@ -179,7 +179,7 @@ p {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     min-height: 70px;
 }
@@ -916,7 +916,7 @@ img {
 
 .city-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: var(--spacing-sm);
 }
@@ -1314,7 +1314,7 @@ img {
 
 .category-list a {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 0;
     color: var(--color-gray);
@@ -1507,7 +1507,7 @@ img {
 
 .article-meta {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: var(--spacing-lg) 0;
     border-top: 1px solid #e9ecef;
@@ -2460,11 +2460,11 @@ img {
     transition: all 0.3s ease;
     border: 1px solid rgba(14, 69, 128, 0.1);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 800px;
+    justify-content: flex-start;
+    min-height: 800px;
     align-items: center;
     text-align: center;
 }
@@ -2507,12 +2507,8 @@ img {
     color: var(--color-gray);
     line-height: 1.8;
     margin: 0 0 var(--spacing-xl) 0;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .advantage-card .card-header {
@@ -4235,11 +4231,11 @@ img {
     transition: all 0.3s ease;
     border: 1px solid rgba(14, 69, 128, 0.1);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 700px;
+    justify-content: flex-start;
+    min-height: 700px;
     align-items: center;
 }
 
@@ -4296,12 +4292,8 @@ img {
     color: var(--color-gray);
     line-height: 1.8;
     margin: 0 0 var(--spacing-xl) 0;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .quality-section {
@@ -5078,7 +5070,7 @@ img {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 650px;
     align-items: center;
     text-align: center;
@@ -5332,7 +5324,7 @@ img {
     height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
     overflow: hidden;
     padding: var(--spacing-2xl);
@@ -6919,7 +6911,7 @@ html {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: var(--spacing-lg);
 }
 

@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     scrollToTopBtn.className = 'scroll-to-top';
-    scrollToTopBtn.style.cssText = 
+    scrollToTopBtn.style.cssText = `
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 1000;
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    ;
+    `;
     
     document.body.appendChild(scrollToTopBtn);
     

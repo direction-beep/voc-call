@@ -5318,12 +5318,12 @@ img {
 .performance-card,
 .satisfaction-card,
 .growth-card {
-    height: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     padding: var(--spacing-2xl);
     background: var(--color-white);
     border-radius: var(--border-radius);

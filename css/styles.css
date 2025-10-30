@@ -2029,6 +2029,21 @@ img {
     margin-bottom: var(--spacing-xl);
 }
 
+.footer-logo {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+.footer-logo a {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
 .footer-section h3 {
     color: var(--color-black);
     margin-bottom: var(--spacing-md);

@@ -2454,17 +2454,17 @@ img {
 
 .advantage-card {
     background-color: var(--color-white);
-    padding: var(--spacing-5xl);
+    padding: var(--spacing-2xl);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: 1px solid rgba(14, 69, 128, 0.1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 800px;
+    height: auto;
     align-items: center;
     text-align: center;
 }
@@ -4224,18 +4224,18 @@ img {
 
 .advantage-card {
     background: var(--color-white);
-    padding: var(--spacing-4xl);
+    padding: var(--spacing-2xl);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
     transition: all 0.3s ease;
     border: 1px solid rgba(14, 69, 128, 0.1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 700px;
+    height: auto;
     align-items: center;
 }
 

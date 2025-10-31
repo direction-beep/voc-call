@@ -57,30 +57,9 @@
   ],
   "redirects": [
     {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/qui-sommes-nous",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/devenir-teleconseiller",
-      "destination": "/careers",
-      "permanent": true
-    },
-    {
-      "source": "/nous-contacter",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/temoignages-clients",
-      "destination": "/testimonials",
+      "source": "/demenageur-paris/",
+      "destination": "/demenageur-paris",
       "permanent": true
     }
   ]
 }
-

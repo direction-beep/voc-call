@@ -578,7 +578,12 @@
                 </p>
             </div>
             <div class="form-container">
-                <form class="candidate-form-content" id="candidate-form-element">
+                <div id="candidate-success-placeholder"></div>
+                <form class="candidate-form-content" id="candidate-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST">
+                    <input type="hidden" name="_subject" value="Nouvelle candidature - VOC-Call">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://localhost:3001/careers.html?success=1#candidate-form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="first-name">Prénom *</label>
@@ -698,6 +703,26 @@
     <script src="js/main.js"></script>
 
     <script src="js/header-cleanup.js"></script>
+    <script>
+    (function() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('success') === '1') {
+                var placeholder = document.getElementById('candidate-success-placeholder');
+                if (placeholder) {
+                    var box = document.createElement('div');
+                    box.className = 'form-success';
+                    box.innerHTML = '<div class="icon">✓</div>' +
+                                    '<div class="content">' +
+                                    '<p class="title">Merci pour votre candidature.</p>' +
+                                    '<p class="text">Nous revenons vers vous dans les plus brefs délais pour la suite.</p>' +
+                                    '</div>';
+                    placeholder.appendChild(box);
+                }
+            }
+        } catch(e) {}
+    })();
+    </script>
 </body>
 </html>
 

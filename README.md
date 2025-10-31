@@ -1,55 +1,56 @@
-# Déménagement Facile - Site Web
+# VOC-Call - Site Web
 
-Site web officiel de Déménagement Facile, spécialisé dans les services de déménagement professionnel.
+Site web officiel de VOC-Call, spécialisé dans les services de relation client et prospection commerciale.
 
 ## 🚀 Déploiement
 
-Ce site est configuré pour être déployé automatiquement sur Vercel.
+Ce site est déployé automatiquement sur Vercel à partir de ce repository GitHub.
 
 ## 📁 Structure du projet
 
 ```
-demenagement-facile-site/
-├── index.html                    # Page d'accueil
-├── demenageur-paris.html         # Page ville Paris
-├── services.html                 # Services
-├── comment-ca-marche.html        # Comment ça marche
-├── villes.html                   # Liste des villes
-├── contact.html                  # Contact
+VOC-Call/
+├── index.html              # Page d'accueil
+├── about.html              # À propos
+├── contact.html            # Contact
+├── careers.html            # Carrières
+├── testimonials.html       # Témoignages
+├── services/               # Pages de services
+│   ├── service-client.html
+│   ├── prospection.html
+│   ├── telesecretariat.html
+│   ├── permanence.html
+│   ├── helpdesk.html
+│   └── back-office.html
+├── legal/                  # Pages légales
+│   ├── mentions-legales.html
+│   ├── politique-confidentialite.html
+│   └── cookies.html
 ├── css/
-│   └── styles.css                # Styles principaux
+│   └── styles.css          # Styles principaux
 ├── js/
-│   └── main.js                   # Scripts principaux
-├── vercel.json                   # Configuration Vercel
-├── robots.txt                    # Configuration SEO
-├── sitemap.xml                   # Sitemap XML
-└── README.md                     # Documentation
+│   ├── main.js            # Scripts principaux
+│   └── header-cleanup.js  # Nettoyage header
+├── images/                # Images et logos
+└── blog/                  # Articles de blog
 ```
 
 ## 🛠️ Technologies utilisées
 
 - **HTML5** - Structure sémantique
 - **CSS3** - Styles et responsive design
-- **JavaScript** - Interactivité et validation de formulaires
+- **JavaScript** - Interactivité
+- **Font Awesome** - Icônes
 - **Vercel** - Hébergement et déploiement
 
 ## 📱 Fonctionnalités
 
 - ✅ Design responsive (mobile, tablette, desktop)
 - ✅ Navigation intuitive
-- ✅ Formulaires de devis optimisés
-- ✅ Optimisation SEO (meta tags, schema markup)
-- ✅ Pages villes pour référencement local
+- ✅ Système de cookies RGPD
+- ✅ Optimisation SEO
 - ✅ Chargement rapide
 - ✅ Accessibilité
-
-## 🎯 Stratégie SEO
-
-- Pages dédiées par ville (ex: /demenageur-paris)
-- Schema.org LocalBusiness
-- Contenu localisé
-- Meta tags optimisés
-- Sitemap XML
 
 ## 🔧 Développement local
 
@@ -67,15 +68,10 @@ Puis ouvrir http://localhost:3002
 
 ## 📞 Contact
 
-- **Site web** : https://demenagement-facile.fr
-- **Domain** : demenagement-facile.fr
-
-## 📝 Notes
-
-- Formulaire de devis à intégrer avec backend
-- Ajout de pages villes supplémentaires selon besoins
-- Optimisation continue des contenus SEO
+- **Site web** : https://voc-call.fr
+- **Email** : contact@voc-call.fr
+- **Adresse** : 2 place Jean V, 44000 Nantes, France
 
 ---
 
-© 2025 Déménagement Facile. Tous droits réservés.
+© 2024 VOC-Call. Tous droits réservés.

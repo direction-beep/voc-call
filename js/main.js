@@ -1,142 +1,191 @@
-﻿// ============================================
-// DÉMÉNAGEMENT FACILE - JAVASCRIPT PRINCIPAL
-// ============================================
+﻿// VOC-Call Main JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu mobile
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
     
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('active');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            const isExpanded = navMenu.classList.contains('active');
             navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            
+            // Mise à jour des attributs ARIA
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navToggle.setAttribute('aria-label', !isExpanded ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation');
+        });
+
+        // Close mobile menu when clicking on a link (except dropdown)
+        const navLinks = document.querySelectorAll('.nav-link:not(.dropdown > .nav-link)');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         });
     }
 
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        if (question) {
-            question.addEventListener('click', function() {
-                // Fermer les autres items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle l'item actuel
-                item.classList.toggle('active');
-            });
-        }
-    });
-
-    // Formulaires de devis (ignorer les formulaires contact et candidature qui doivent soumettre normalement)
-    const forms = document.querySelectorAll('form:not(#contact-form-element):not(#candidate-form-element)');
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+    // Dropdown Menu Management
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        const dropdownLink = dropdown.querySelector('.nav-link');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        // Toggle dropdown on click
+        dropdownLink.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            const isExpanded = dropdown.classList.contains('active');
+            dropdown.classList.toggle('active');
             
-            // Récupérer les données du formulaire
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Validation basique
-            if (!data['ville-depart'] || !data['ville-arrivee'] || !data['date'] || !data['email'] || !data['telephone']) {
-                alert('Veuillez remplir tous les champs obligatoires.');
-                return;
-            }
-            
-            // Simuler l'envoi
-            console.log('Formulaire soumis:', data);
-            
-            // Afficher un message de succès
-            alert('Merci pour votre demande de devis ! Nous vous contacterons sous 24h.');
-            
-            // Réinitialiser le formulaire
-            form.reset();
+            // Mise à jour des attributs ARIA
+            dropdownLink.setAttribute('aria-expanded', !isExpanded);
         });
-    });
 
-    // Date minimale pour les champs de date
-    const dateInputs = document.querySelectorAll('input[type="date"]');
-    const today = new Date().toISOString().split('T')[0];
-    
-    dateInputs.forEach(input => {
-        input.setAttribute('min', today);
-    });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+                dropdownLink.setAttribute('aria-expanded', 'false');
+            }
+        });
 
-    // Animation au scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        // Close dropdown when clicking on a service link
+        const serviceLinks = dropdownMenu.querySelectorAll('a');
+        serviceLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Don't close the dropdown immediately, let the user navigate
+                // The dropdown will close when they click outside or on another menu item
+            });
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // Cookie Banner Management
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieDecline = document.getElementById('cookie-decline');
+
+    // Check if user has already made a choice
+    if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(() => {
+            if (cookieBanner) {
+                cookieBanner.classList.add('show');
+                cookieBanner.style.display = 'block';
+                cookieBanner.style.visibility = 'visible';
+                cookieBanner.style.opacity = '1';
+                cookieBanner.style.transform = 'translateY(0)';
+                console.log('Cookie banner shown');
+            } else {
+                console.error('Cookie banner element not found!');
+            }
+        }, 1000); // Reduced delay for testing
+    } else {
+        console.log('Cookie consent already given:', localStorage.getItem('cookieConsent'));
+    }
+
+    if (cookieAccept) {
+        cookieAccept.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Accept button clicked');
+            localStorage.setItem('cookieConsent', 'accepted');
+            if (cookieBanner) {
+                cookieBanner.classList.remove('show');
+                cookieBanner.style.display = 'none';
+                cookieBanner.style.visibility = 'hidden';
+                cookieBanner.style.opacity = '0';
+                cookieBanner.style.transform = 'translateY(100%)';
+            }
+            console.log('Cookies accepted');
+        });
+    } else {
+        console.log('Cookie accept button not found');
+    }
+
+    if (cookieDecline) {
+        cookieDecline.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Decline button clicked');
+            localStorage.setItem('cookieConsent', 'declined');
+            if (cookieBanner) {
+                cookieBanner.classList.remove('show');
+                cookieBanner.style.display = 'none';
+                cookieBanner.style.visibility = 'hidden';
+                cookieBanner.style.opacity = '0';
+                cookieBanner.style.transform = 'translateY(100%)';
+            }
+            console.log('Cookies declined');
+        });
+    } else {
+        console.log('Cookie decline button not found');
+    }
+
+    // Function to reset cookie consent (for testing)
+    window.resetCookieConsent = function() {
+        localStorage.removeItem('cookieConsent');
+        console.log('Cookie consent reset');
+        location.reload();
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observer les sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-
-    // Lien de défilement fluide
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href === '#0') return;
-            
+    // Smooth scrolling for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(href);
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
             
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Compensation du header sticky
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
                 window.scrollTo({
-                    top: offsetTop,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Bouton scroll to top
+    // Scroll to top functionality
     const scrollToTopBtn = document.createElement('button');
-    scrollToTopBtn.innerHTML = '↑';
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     scrollToTopBtn.className = 'scroll-to-top';
     scrollToTopBtn.style.cssText = `
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 20px;
+        right: 20px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: #2563eb;
+        background-color: var(--color-red);
         color: white;
         border: none;
         cursor: pointer;
         display: none;
         z-index: 1000;
-        font-size: 1.5rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     `;
+    
     document.body.appendChild(scrollToTopBtn);
-
-    // Afficher/masquer le bouton scroll to top
+    
+    // Show/hide scroll to top button
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
             scrollToTopBtn.style.display = 'block';
@@ -144,57 +193,418 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollToTopBtn.style.display = 'none';
         }
     });
-
-    // Scroll to top au clic
+    
+    // Scroll to top on click
     scrollToTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-});
 
-// Fonction pour gérer l'autocomplétion des villes
-function initCityAutocomplete() {
-    const villesFrance = [
-        'Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg',
-        'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Reims', 'Saint-Étienne',
-        'Toulon', 'Le Havre', 'Grenoble', 'Dijon', 'Angers', 'Nîmes', 'Villeurbanne',
-        // Ajouter plus de villes si nécessaire
-    ];
-
-    const cityInputs = document.querySelectorAll('input[id*="ville"]');
-    
-    cityInputs.forEach(input => {
-        input.addEventListener('input', function() {
-            const value = this.value.toLowerCase();
-            const matchingCities = villesFrance.filter(city => 
-                city.toLowerCase().startsWith(value)
-            );
-
-            // Créer une liste déroulante
-            let datalist = this.getAttribute('list');
-            if (!datalist) {
-                const listId = 'villes-' + Math.random().toString(36).substr(2, 9);
-                this.setAttribute('list', listId);
+    // Add loading animation to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (this.type === 'submit' || this.classList.contains('btn-primary')) {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+                this.disabled = true;
                 
-                datalist = document.createElement('datalist');
-                datalist.id = listId;
-                document.body.appendChild(datalist);
-            } else {
-                datalist = document.querySelector('#' + datalist);
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }, 2000);
             }
-
-            // Mettre à jour les options
-            datalist.innerHTML = '';
-            matchingCities.slice(0, 10).forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                datalist.appendChild(option);
-            });
         });
     });
-}
 
-// Initialiser l'autocomplétion des villes
-initCityAutocomplete();
+    // Add fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card');
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = 
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+    ;
+    document.head.appendChild(style);
+
+    // FAQ Accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function() {
+                // Close other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        }
+    });
+
+    // Form validation and submission
+    const contactForm = document.getElementById('contact-form-element');
+    const candidateForm = document.getElementById('candidate-form-element');
+    
+    function validateForm(form) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        // Clear previous error states
+        requiredFields.forEach(field => {
+            field.style.borderColor = 'var(--color-light-gray)';
+            const errorMsg = field.parentNode.querySelector('.error-message');
+            if (errorMsg) errorMsg.remove();
+        });
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = 'var(--color-red)';
+                showFieldError(field, 'Ce champ est obligatoire');
+                isValid = false;
+            }
+        });
+        
+        // Email validation
+        const emailFields = form.querySelectorAll('input[type="email"]');
+        emailFields.forEach(field => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (field.value && !emailRegex.test(field.value)) {
+                field.style.borderColor = 'var(--color-red)';
+                showFieldError(field, 'Veuillez entrer une adresse email valide');
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    function showFieldError(field, message) {
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = message;
+        errorMsg.style.cssText = 'color: var(--color-red); font-size: 0.875rem; margin-top: 0.25rem;';
+        field.parentNode.appendChild(errorMsg);
+    }
+    
+    function handleFormSubmit(form, formType) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm(form)) {
+                alert('Veuillez remplir tous les champs obligatoires correctement.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                alert(formType === 'contact' ? 
+                    'Votre message a été envoyé avec succès ! Nous vous contacterons bientôt.' : 
+                    'Votre candidature a été envoyée avec succès ! Nous vous contacterons bientôt.');
+                
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
+    
+    if (contactForm) {
+        handleFormSubmit(contactForm, 'contact');
+    }
+    
+    if (candidateForm) {
+        handleFormSubmit(candidateForm, 'candidate');
+    }
+
+    // Smooth scroll for anchor links with offset
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Improved loading states for primary buttons
+    const primaryButtons = document.querySelectorAll('.btn-primary');
+    primaryButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (this.type === 'submit' || this.href.includes('contact')) {
+                e.preventDefault();
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
+                this.disabled = true;
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    // Show success message
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'success';
+                    successMsg.textContent = 'Message envoyé avec succès !';
+                    successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 15px; border-radius: 8px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;';
+                    document.body.appendChild(successMsg);
+                    
+                    setTimeout(() => successMsg.remove(), 3000);
+                }, 2000);
+            }
+        });
+    });
+
+    // Cards already have CSS hover effects, no need for JS
+
+    // Simple click feedback for buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+
+    // Add intersection observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card, .benefit-card, .job-card, .pricing-card, .value-card, .team-member, .case-study-card, .certification-card, .partner-item, .business-partner-card, .tech-category, .innovation-feature, .environment-feature, .contact-info-card, .faq-item, .sector-card, .process-step');
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Progress bar functionality
+    const progressBar = document.getElementById('progress-bar');
+    
+    window.addEventListener('scroll', function() {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+
+    // Simple reveal animations for cards only
+    const cardElements = document.querySelectorAll('.service-card, .testimonial-card, .feature-item');
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    cardElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        cardObserver.observe(el);
+    });
+
+    // Simple fade-in for hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.style.opacity = '0';
+        heroTitle.style.transform = 'translateY(20px)';
+        heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        
+        setTimeout(() => {
+            heroTitle.style.opacity = '1';
+            heroTitle.style.transform = 'translateY(0)';
+        }, 300);
+    }
+
+    // Simple hover effects for better UX
+    const interactiveElements = document.querySelectorAll('.service-card, .btn, .nav-link');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+        });
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Close mobile menu
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Add focus management for accessibility
+    const focusableElements = document.querySelectorAll('a, button, input, textarea, select');
+    focusableElements.forEach(el => {
+        el.addEventListener('focus', function() {
+            this.style.outline = '2px solid var(--color-blue)';
+            this.style.outlineOffset = '2px';
+        });
+        
+        el.addEventListener('blur', function() {
+            this.style.outline = 'none';
+        });
+    });
+
+    // Lazy loading pour les images
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback pour les navigateurs sans IntersectionObserver
+        lazyImages.forEach(img => {
+            img.classList.add('loaded');
+        });
+    }
+
+    // Preload des images critiques
+    const criticalImages = [
+        'images/optimized/hero-call-center.jpg',
+        'images/optimized/hero-about.jpg'
+    ];
+
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+
+    // Optimisation des performances
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            // Charger les images non critiques en arrière-plan
+            const nonCriticalImages = document.querySelectorAll('img[loading="lazy"]:not(.loaded)');
+            nonCriticalImages.forEach(img => {
+                if (img.src) {
+                    img.classList.add('loaded');
+                }
+            });
+        });
+    }
+
+    console.log('VOC-Call website initialized successfully with enhanced UX and performance optimizations');
+});

@@ -131,7 +131,12 @@
                         Remplissez le formulaire ci-dessous et notre équipe vous contactera dans les plus brefs délais
                     </p>
                 </div>
-                <form class="contact-form" id="contact-form-element">
+                <div id="contact-success-placeholder"></div>
+                <form class="contact-form" id="contact-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST">
+                    <input type="hidden" name="_subject" value="Nouvelle demande de contact - VOC-Call">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://voc-call.vercel.app/contact.html?success=1#contact-form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="company">Société *</label>
@@ -299,6 +304,26 @@
 
     <script src="js/main.js"></script>
     <script src="js/header-cleanup.js"></script>
+    <script>
+    (function() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('success') === '1') {
+                var placeholder = document.getElementById('contact-success-placeholder');
+                if (placeholder) {
+                    var box = document.createElement('div');
+                    box.className = 'form-success';
+                    box.innerHTML = '<div class="icon">✓</div>' +
+                                    '<div class="content">' +
+                                    '<p class="title">Merci, votre demande de devis a bien été envoyée.</p>' +
+                                    '<p class="text">Nous vous recontactons très bientôt pour échanger sur votre projet.</p>' +
+                                    '</div>';
+                    placeholder.appendChild(box);
+                }
+            }
+        } catch(e) {}
+    })();
+    </script>
 </body>
 </html>
 

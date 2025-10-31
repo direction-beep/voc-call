@@ -330,29 +330,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function handleFormSubmit(form, formType) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+            // Validation côté client puis soumission native (FormSubmit)
             if (!validateForm(form)) {
+                e.preventDefault();
                 alert('Veuillez remplir tous les champs obligatoires correctement.');
                 return;
             }
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                alert(formType === 'contact' ? 
-                    'Votre message a été envoyé avec succès ! Nous vous contacterons bientôt.' : 
-                    'Votre candidature a été envoyée avec succès ! Nous vous contacterons bientôt.');
-                
-                form.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+            // Laisser le navigateur soumettre le formulaire (aucun preventDefault)
         });
     }
     
@@ -388,8 +372,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const primaryButtons = document.querySelectorAll('.btn-primary');
     primaryButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            if (this.type === 'submit' || this.href.includes('contact')) {
-                e.preventDefault();
+            // Ne pas interférer avec les vrais boutons de soumission de formulaire
+            if (this.tagName === 'A') {
                 const originalText = this.innerHTML;
                 this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
                 this.disabled = true;
@@ -398,14 +382,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     this.innerHTML = originalText;
                     this.disabled = false;
-                    // Show success message
-                    const successMsg = document.createElement('div');
-                    successMsg.className = 'success';
-                    successMsg.textContent = 'Message envoyé avec succès !';
-                    successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 15px; border-radius: 8px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;';
-                    document.body.appendChild(successMsg);
-                    
-                    setTimeout(() => successMsg.remove(), 3000);
                 }, 2000);
             }
         });

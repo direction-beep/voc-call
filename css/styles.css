@@ -1,3 +1,39 @@
+/* === Confirmation banners (forms) === */
+.form-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-bottom: 22px;
+    border-left: 6px solid #10b981;
+}
+.form-success .icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #10b981;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+.form-success .content { line-height: 1.5; }
+.form-success .title {
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    font-size: 1.05rem;
+}
+.form-success .text { margin: 0; opacity: 0.9; }
+
+.form-success-toast { position: sticky; top: 0; z-index: 2000; }
 /* VOC-Call - Styles CSS */
 :root {
     --color-beige: #e2ae91;

@@ -312,13 +312,18 @@
                 var placeholder = document.getElementById('contact-success-placeholder');
                 if (placeholder) {
                     var box = document.createElement('div');
-                    box.className = 'form-success';
+                    box.className = 'form-success form-success-toast';
+                    box.setAttribute('role','status');
+                    box.setAttribute('aria-live','polite');
                     box.innerHTML = '<div class="icon">✓</div>' +
                                     '<div class="content">' +
                                     '<p class="title">Merci, votre demande de devis a bien été envoyée.</p>' +
-                                    '<p class="text">Nous vous recontactons très bientôt pour échanger sur votre projet.</p>' +
+                                    '<p class="text">Nous vous recontactons très bientôt pour échanger sur votre projet. Vous allez également recevoir un email récapitulatif.</p>' +
                                     '</div>';
                     placeholder.appendChild(box);
+                    var form = document.getElementById('contact-form-element');
+                    if (form) { form.style.display = 'none'; }
+                    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         } catch(e) {}

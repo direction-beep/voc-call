@@ -1,3 +1,35 @@
+## Publication automatique du blog
+
+Les brouillons programmés sont placés dans `blog/_drafts/<slug>/` avec :
+
+```
+blog/_drafts/my-article/
+  meta.json   # métadonnées (slug, titre, date, image, extrait, etc.)
+  index.html  # contenu HTML final
+```
+
+Exemple `meta.json` :
+
+```json
+{
+  "slug": "backoffice-digital-delais-reponse",
+  "title": "Back‑office digital : réduire les délais de réponse",
+  "date": "2025-11-08",
+  "category": "Technique",
+  "image": "images/hero/hero-back-office.jpg",
+  "excerpt": "Emails, chat, réseaux sociaux : méthodes et outils pour répondre vite.",
+  "readTime": "6 min"
+}
+```
+
+Un workflow GitHub Actions (`.github/workflows/publish.yml`) s’exécute le mardi et vendredi à 07:00 UTC et publie tout brouillon dont `date` ≤ aujourd’hui :
+
+- copie `index.html` vers `blog/<slug>.html`
+- insère la carte de l’article en tête de la grille dans `blog.html`
+- commit/push automatiques
+
+Déclenchement manuel possible via l’onglet Actions → “Publish scheduled blog posts” → Run workflow.
+
 # VOC-Call - Site Web
 
 Site web officiel de VOC-Call, spécialisé dans les services de relation client et prospection commerciale.

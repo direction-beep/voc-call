@@ -1,0 +1,37 @@
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    - cron: '0 7 * * 2,5'  # Tue & Fri at 07:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run publisher
+        run: node scripts/publish.js
+
+      - name: Commit & push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(blog): publish scheduled drafts'
+          branch: main
+          commit_user_name: voc-call-bot
+          commit_user_email: noreply@voc-call.com
+          file_pattern: |
+            blog/**
+            sitemap.xml
+            blog.html
+
+

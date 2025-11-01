@@ -1,3 +1,18 @@
+/* Progressive rendering: avoid work below the fold on first paint */
+.services, .about, .why-choose-us, .testimonials, .stats-section,
+.mission-vision, .team, .cta, .values, .our-story {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px 800px; /* reserve space to prevent layout shift */
+}
+
+/* Mobile touch targets (footer social links, nav icons) */
+.social-links a, .nav-link .fas, .nav-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 /* === Confirmation banners (forms) === */
 .form-success {
     display: flex;

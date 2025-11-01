@@ -220,50 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add fade-in animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card');
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
-
-    // Add CSS for animations
-    const style = document.createElement('style');
-    style.textContent = 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .scroll-to-top:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-    ;
-    document.head.appendChild(style);
+    // Initial simple animation setup (deduplicated below with extended list)
+    // (Block intentionally removed to avoid duplicate observers and fix syntax error)
 
     // FAQ Accordion functionality
     const faqItems = document.querySelectorAll('.faq-item');

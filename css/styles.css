@@ -13,6 +13,19 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Reduce CLS: fix logo dimensions and cookie banner overlay */
+.nav-logo img, .footer-logo img {
+    width: 120px;
+    height: 32px;
+}
+
+.cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 /* === Confirmation banners (forms) === */
 .form-success {
     display: flex;

@@ -306,25 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
         handleFormSubmit(candidateForm, 'candidate');
     }
 
-    // Smooth scroll for anchor links with offset
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // (duplicate smooth scroll block removed to avoid redeclaration of anchorLinks)
 
     // Improved loading states for primary buttons
     const primaryButtons = document.querySelectorAll('.btn-primary');

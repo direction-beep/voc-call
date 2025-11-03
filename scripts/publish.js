@@ -24,6 +24,14 @@ const DRAFTS_DIR = path.join(ROOT, 'blog', '_drafts');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const BLOG_LIST = path.join(ROOT, 'blog.html');
 
+// LinkedIn integration (optional)
+let linkedInModule = null;
+try {
+  linkedInModule = require('./linkedin');
+} catch (e) {
+  // LinkedIn module not required
+}
+
 function log(msg) { console.log(`[publish] ${msg}`); }
 
 function loadJSON(file) {
@@ -74,6 +82,20 @@ function publishDraft(draftDir) {
   fs.copyFileSync(htmlPath, target);
   insertCardIntoBlogList(meta);
   log(`published ${meta.slug}`);
+  
+  // Publish to LinkedIn if module is available
+  if (linkedInModule && linkedInModule.publishToLinkedIn) {
+    linkedInModule.publishToLinkedIn(meta)
+      .then(success => {
+        if (success) {
+          log(`LinkedIn post created for ${meta.slug}`);
+        }
+      })
+      .catch(err => {
+        log(`LinkedIn post failed for ${meta.slug}: ${err.message}`);
+      });
+  }
+  
   return true;
 }
 

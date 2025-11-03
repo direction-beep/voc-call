@@ -28,7 +28,11 @@ Un workflow GitHub Actions (`.github/workflows/publish.yml`) s’exécute le mar
 - insère la carte de l’article en tête de la grille dans `blog.html`
 - commit/push automatiques
 
-Déclenchement manuel possible via l’onglet Actions → “Publish scheduled blog posts” → Run workflow.
+Déclenchement manuel possible via l'onglet Actions → "Publish scheduled blog posts" → Run workflow.
+
+### Publication automatique sur LinkedIn
+
+Quand un article est publié, il est automatiquement partagé sur LinkedIn via l'API LinkedIn. Voir [README_LINKEDIN.md](README_LINKEDIN.md) pour la configuration des credentials LinkedIn (secrets GitHub).
 
 # VOC-Call - Site Web
 

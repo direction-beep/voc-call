@@ -81,12 +81,40 @@ Au final, vous aurez **4 identifiants** à ajouter dans GitHub :
 
 ⚠️ **Important** : Ne partagez jamais ces valeurs publiquement !
 
-### 3.3 Configurer une Redirect URI (si nécessaire)
+### 3.3 Configurer une Redirect URI ⚙️
+
+**🔍 Pourquoi cette étape est nécessaire ?**
+
+La Redirect URI est l'URL vers laquelle LinkedIn vous redirigera **après** que vous ayez autorisé l'application dans votre navigateur. C'est à cette URL que LinkedIn enverra un **code d'autorisation temporaire** (dans l'URL) que vous utiliserez ensuite pour obtenir l'Access Token.
+
+**💡 Important à comprendre** :
+- ✅ Cette URL **n'a pas besoin d'être un vrai serveur qui fonctionne**
+- ✅ Elle sert **uniquement à récupérer le code pendant la configuration** (une seule fois)
+- ✅ Une fois l'Access Token obtenu, vous n'aurez plus besoin que cette URL existe réellement
+- ✅ C'est juste une "boîte aux lettres" temporaire pour recevoir le code dans l'URL
+
+**📝 Comment ça fonctionne concrètement** :
+1. Vous cliquez sur un lien d'autorisation LinkedIn (étape 4.2)
+2. LinkedIn vous demande d'autoriser l'app → Vous autorisez
+3. LinkedIn vous redirige vers `http://localhost:3000?code=XXXXX` 
+4. ⚠️ **La page peut afficher "Connection refused" ou une erreur - C'EST NORMAL !**
+5. **L'important** : Regardez la **barre d'adresse** de votre navigateur
+6. Vous copiez le code depuis l'URL (le `XXXXX` après `?code=`)
+7. Vous utilisez ce code pour obtenir l'Access Token (étape 4.4)
+
+**⚙️ Configuration** :
 
 1. Toujours dans **"Auth"**, section **"OAuth 2.0 redirect URLs"**
 2. Cliquez sur **"Add redirect URL"**
-3. Ajoutez : `http://localhost:3000`
+3. Ajoutez : `http://localhost:3000` 
+   - ⚠️ Utilisez **exactement** cette valeur (pas de slash final `/`, pas de port différent)
 4. Cliquez sur **"Update"**
+
+**🔄 Alternative** : Vous pouvez utiliser une autre URL que vous contrôlez, par exemple :
+- `https://voc-call.vercel.app/linkedin-callback`
+- `http://localhost:8080`
+
+⚠️ **Important** : Quelle que soit l'URL que vous choisissez, vous devrez utiliser **la même URL exacte** lors de l'étape 4 (obtenir l'Access Token).
 
 ✅ **Résultat** : Vous avez maintenant `LINKEDIN_CLIENT_ID` et `LINKEDIN_CLIENT_SECRET`.
 

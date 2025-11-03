@@ -137,15 +137,24 @@ https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78a
 
 #### 4.3 Récupérer le code d'autorisation
 
-Après autorisation, vous serez redirigé vers une URL comme :
+Après autorisation, LinkedIn vous redirigera vers l'URL que vous avez configurée (par exemple `http://localhost:3000`).
+
+**Ce qui se passe** :
+- Vous serez redirigé vers une URL comme :
 ```
 http://localhost:3000?code=AQTxyz123abc...&state=random123
 ```
+- ⚠️ **Ne vous inquiétez pas si la page affiche "This site can't be reached" ou "Connection refused"** - c'est normal ! La page `localhost:3000` n'existe probablement pas, mais ce n'est pas grave.
+
+**Ce qui compte** : Le code est dans l'URL dans la barre d'adresse du navigateur !
 
 **Le code est dans l'URL après `?code=`**
 
-1. **Copiez tout le code** (c'est une longue chaîne de caractères)
-2. Gardez-le précieusement, vous en aurez besoin dans la prochaine étape
+1. **Regardez la barre d'adresse de votre navigateur**
+2. **Copiez tout le code** qui suit `?code=` jusqu'au `&` (c'est une longue chaîne de caractères)
+   - Exemple : Si l'URL est `http://localhost:3000?code=AQTxyz789&state=random123`, copiez `AQTxyz789`
+3. Gardez-le précieusement, vous en aurez besoin dans la prochaine étape
+4. ⚠️ **Important** : Le code expire rapidement (5-10 minutes) → Utilisez-le immédiatement !
 
 #### 4.4 Échanger le code contre un Access Token
 

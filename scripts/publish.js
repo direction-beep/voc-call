@@ -63,7 +63,7 @@ function insertCardIntoBlogList(meta) {
   log(`Inserted card for ${meta.slug} in blog.html`);
 }
 
-function publishDraft(draftDir) {
+async function publishDraft(draftDir) {
   const metaPath = path.join(draftDir, 'meta.json');
   const htmlPath = path.join(draftDir, 'index.html');
   if (!fs.existsSync(metaPath) || !fs.existsSync(htmlPath)) {
@@ -85,21 +85,24 @@ function publishDraft(draftDir) {
   
   // Publish to LinkedIn if module is available
   if (linkedInModule && linkedInModule.publishToLinkedIn) {
-    linkedInModule.publishToLinkedIn(meta)
-      .then(success => {
-        if (success) {
-          log(`LinkedIn post created for ${meta.slug}`);
-        }
-      })
-      .catch(err => {
-        log(`LinkedIn post failed for ${meta.slug}: ${err.message}`);
-      });
+    try {
+      const success = await linkedInModule.publishToLinkedIn(meta);
+      if (success) {
+        log(`✓ LinkedIn post created for ${meta.slug}`);
+      } else {
+        log(`⚠ LinkedIn post skipped for ${meta.slug}`);
+      }
+    } catch (err) {
+      log(`✗ LinkedIn post failed for ${meta.slug}: ${err.message}`);
+    }
+  } else {
+    log(`LinkedIn module not available, skipping LinkedIn publication`);
   }
   
   return true;
 }
 
-function main() {
+async function main() {
   if (!fs.existsSync(DRAFTS_DIR)) {
     log('no drafts dir; nothing to do');
     return;
@@ -107,12 +110,15 @@ function main() {
   const entries = fs.readdirSync(DRAFTS_DIR, { withFileTypes: true }).filter(e => e.isDirectory());
   let publishedAny = false;
   for (const e of entries) {
-    const ok = publishDraft(path.join(DRAFTS_DIR, e.name));
+    const ok = await publishDraft(path.join(DRAFTS_DIR, e.name));
     if (ok) publishedAny = true;
   }
   log(publishedAny ? 'done with publications' : 'no draft due today');
 }
 
-main();
+main().catch(err => {
+  console.error('[publish] Fatal error:', err);
+  process.exit(1);
+});
 
 

@@ -6,13 +6,13 @@
   - LINKEDIN_CLIENT_SECRET
   - LINKEDIN_ACCESS_TOKEN
   - LINKEDIN_PERSON_URN (optional, if posting as a page)
-  - SITE_URL (e.g., https://voc-call.vercel.app)
+  - SITE_URL (e.g., https://voc-call.fr)
 */
 
 const https = require('https');
 const { URL } = require('url');
 
-const SITE_URL = process.env.SITE_URL || 'https://voc-call.vercel.app';
+const SITE_URL = process.env.SITE_URL || 'https://voc-call.fr';
 const LINKEDIN_CLIENT_ID = process.env.LINKEDIN_CLIENT_ID;
 const LINKEDIN_CLIENT_SECRET = process.env.LINKEDIN_CLIENT_SECRET;
 const LINKEDIN_ACCESS_TOKEN = process.env.LINKEDIN_ACCESS_TOKEN;
@@ -115,7 +115,7 @@ ${meta.excerpt || ''}
 
 ${hashtags}
 
-#VOCCall #BPO #CallCenter`;
+#VOCCall #BPO #CallCenter #ServiceClient #Externalisation`;
 
   return text;
 }

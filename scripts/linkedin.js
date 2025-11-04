@@ -180,9 +180,16 @@ async function publishToLinkedIn(meta) {
   try {
     log(`Publishing "${meta.title}" to LinkedIn...`);
     
-    // Get author URN
-    const authorURN = await getAuthorURN();
-    log(`Using author URN: ${authorURN}`);
+    // Get author URN - use provided URN or fetch it
+    let authorURN;
+    if (LINKEDIN_PERSON_URN) {
+      authorURN = LINKEDIN_PERSON_URN;
+      log(`Using provided author URN: ${authorURN}`);
+    } else {
+      log(`No LINKEDIN_PERSON_URN provided, attempting to fetch from /v2/me...`);
+      authorURN = await getAuthorURN();
+      log(`Using fetched author URN: ${authorURN}`);
+    }
     
     // Format post content
     const postText = formatLinkedInPost(meta);

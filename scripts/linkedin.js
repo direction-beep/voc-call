@@ -121,45 +121,73 @@ ${hashtags}
 }
 
 /**
- * Create UGC Post on LinkedIn
+ * Create Share Post on LinkedIn (using Share on LinkedIn API)
+ * This uses the legacy Share API which works with "Share on LinkedIn" product
  */
-async function createUGCPost(text, authorURN) {
-  // LinkedIn UGC Post structure
-  const ugcPost = {
-    author: authorURN,
-    lifecycleState: 'PUBLISHED',
-    specificContent: {
-      'com.linkedin.ugc.ShareContent': {
-        shareCommentary: {
-          text: text
-        },
-        shareMediaCategory: 'ARTICLE',
-        media: []
-      }
-    },
-    visibility: {
-      'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
-    }
-  };
-  
-  const url = new URL('/v2/ugcPosts', 'https://api.linkedin.com');
-  const options = {
-    hostname: url.hostname,
-    path: url.pathname,
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${LINKEDIN_ACCESS_TOKEN}`,
-      'Content-Type': 'application/json',
-      'X-Restli-Protocol-Version': '2.0.0'
-    }
-  };
-  
+async function createSharePost(text, authorURN) {
+  // Try UGC Posts API first (for Marketing Developer Platform)
   try {
+    const ugcPost = {
+      author: authorURN,
+      lifecycleState: 'PUBLISHED',
+      specificContent: {
+        'com.linkedin.ugc.ShareContent': {
+          shareCommentary: {
+            text: text
+          },
+          shareMediaCategory: 'ARTICLE',
+          media: []
+        }
+      },
+      visibility: {
+        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
+      }
+    };
+    
+    const url = new URL('/v2/ugcPosts', 'https://api.linkedin.com');
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname,
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${LINKEDIN_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+        'X-Restli-Protocol-Version': '2.0.0'
+      }
+    };
+    
     const response = await makeRequest(options, ugcPost);
     return response;
   } catch (err) {
-    error(`Failed to create UGC post: ${err.message}`);
-    throw err;
+    // If UGC Posts fails, try legacy Share API (for "Share on LinkedIn" product)
+    log('UGC Posts API failed, trying legacy Share API...');
+    
+    const sharePost = {
+      comment: text,
+      visibility: {
+        code: 'anyone'
+      }
+    };
+    
+    const url = new URL('/v2/shares', 'https://api.linkedin.com');
+    const options = {
+      hostname: url.hostname,
+      path: url.pathname,
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${LINKEDIN_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+        'X-Restli-Protocol-Version': '2.0.0'
+      }
+    };
+    
+    try {
+      const response = await makeRequest(options, sharePost);
+      return response;
+    } catch (shareErr) {
+      error(`Both UGC Posts and Share API failed. UGC: ${err.message}, Share: ${shareErr.message}`);
+      throw shareErr;
+    }
   }
 }
 
@@ -195,8 +223,8 @@ async function publishToLinkedIn(meta) {
     const postText = formatLinkedInPost(meta);
     log(`Post text length: ${postText.length} characters`);
     
-    // Create and publish post
-    const result = await createUGCPost(postText, authorURN);
+    // Create and publish post (tries UGC Posts first, then Share API)
+    const result = await createSharePost(postText, authorURN);
     
     if (result.id) {
       log(`Successfully published to LinkedIn! Post ID: ${result.id}`);

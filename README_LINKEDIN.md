@@ -167,3 +167,4 @@ node scripts/linkedin.js blog/_drafts/[slug]/meta.json
 - ⚠️ **Renouvelez régulièrement vos tokens d'accès**
 - ⚠️ **Limitez les permissions aux scopes strictement nécessaires**
 
+

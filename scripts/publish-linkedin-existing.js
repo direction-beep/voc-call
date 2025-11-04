@@ -10,12 +10,18 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 
-// LinkedIn integration
+// LinkedIn integration (optional)
 let linkedInModule = null;
 try {
-  linkedInModule = require('./linkedin');
+  const linkedinPath = path.join(__dirname, 'linkedin.js');
+  if (!fs.existsSync(linkedinPath)) {
+    throw new Error(`LinkedIn module not found at ${linkedinPath}`);
+  }
+  linkedInModule = require(linkedinPath);
 } catch (e) {
   console.error('[linkedin] Module LinkedIn non disponible:', e.message);
+  console.error('[linkedin] Directory:', __dirname);
+  console.error('[linkedin] Files in directory:', fs.readdirSync(__dirname).join(', '));
   process.exit(1);
 }
 

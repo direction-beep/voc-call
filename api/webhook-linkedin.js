@@ -226,7 +226,7 @@ async function publishToLinkedIn(meta) {
 /**
  * Handler principal du webhook
  */
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Seulement POST
   if (req.method !== 'POST') {
     return res.status(405).json({ 

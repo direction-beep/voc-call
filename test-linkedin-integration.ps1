@@ -9,7 +9,8 @@ Write-Host ""
 
 # Les credentials depuis GitHub Secrets (simulation locale)
 $CLIENT_ID = "78a639tvdurngb"
-$CLIENT_SECRET = "WPL_AP1.7VKBgjGWkXiSFMHI.s4s+TQ=="
+# Client Secret - À configurer
+$CLIENT_SECRET = Read-Host "Entrez votre Client Secret (Primary Client Secret depuis LinkedIn)"
 $ACCESS_TOKEN = "AQUK4OWEXWzJBydknYtKhsaLmOfO1Kd3Ns3XWfmNXMqsiqSKUtPWvm66umsqGObjtmjRd48RN--zUmlBd8GiWA50JHe2qDp1whDRRpY7xMMzvMNY8Z3CNIZ5CZLVhMuBU2biKwdAjthYaABLFKPBcKZpfrSrstV5qE2tNHF7xffeP2rTFO5yHHHlLMa9Wjsq7WUrJBTnnuk3mV8Jc7iIXq8Cv2Mf1i4flmbzIjm4oRD5TiyBfGGUc8MJhfic6UqTrKBSZp4-jNfSCYpFaeUMcOTPYAL-fuGjXzJfpVspLhey8bIoLuTT6h_fd140aUE3vTTcAYGNn4HB2BT8TIQiIkXFFRbfmg"
 
 Write-Host "ETAPE 1 : Test de l'Access Token..." -ForegroundColor Yellow

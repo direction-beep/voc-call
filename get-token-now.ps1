@@ -1,7 +1,8 @@
 # Script rapide pour obtenir l'Access Token avec le code fourni
 
 $CLIENT_ID = "78a639tvdurngb"
-$CLIENT_SECRET = "WPL_AP1.7VKBgjGWkXiSFMHI.s4s+TQ=="
+# Client Secret - À configurer
+$CLIENT_SECRET = Read-Host "Entrez votre Client Secret (Primary Client Secret depuis LinkedIn)"
 $REDIRECT_URI = "http://localhost:3000"
 $AUTH_CODE = "AQQg3W-T_1_s9YiIErtQKD39cz28n_Nx-8zaFsGY6v_cZa1LmyBQC_WbOnRQopYCR59D3faXpLlZiKecAv8LSBaoR04tKeYzWdIZvd4TcN3-AmAs-fWosnDXQ8joR8tg2dAGs19CSwqJlnqtZjlJ-hbRVeHLwY93OVsQunUtUALLtI-M2d4a3xHewyjsy3r3eHlDlkUUpoWmCrbNfHU"
 

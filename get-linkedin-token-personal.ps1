@@ -2,7 +2,8 @@
 # Usage: .\get-linkedin-token-personal.ps1
 
 $CLIENT_ID = "78a639tvdurngb"
-$CLIENT_SECRET = "WPL_AP1.BkjHIwnekQiPfCze.zPi41g=="
+# Client Secret - À configurer
+$CLIENT_SECRET = Read-Host "Entrez votre Client Secret (Primary Client Secret depuis LinkedIn)"
 $REDIRECT_URI = "http://localhost:3000"
 # Scopes pour publier sur un profil personnel (sans w_organization_social)
 $SCOPES = "openid%20profile%20email%20w_member_social"

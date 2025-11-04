@@ -34,6 +34,8 @@ Déclenchement manuel possible via l'onglet Actions → "Publish scheduled blog 
 
 Quand un article est publié, il est automatiquement partagé sur LinkedIn via l'API LinkedIn. Voir [README_LINKEDIN.md](README_LINKEDIN.md) pour la configuration des credentials LinkedIn (secrets GitHub).
 
+**Note importante :** Si un article a été publié avant la configuration LinkedIn, il n'aura pas été partagé sur LinkedIn. Utilisez le workflow "Publish existing articles to LinkedIn" dans l'onglet Actions pour publier rétroactivement les articles existants.
+
 # VOC-Call - Site Web
 
 Site web officiel de VOC-Call, spécialisé dans les services de relation client et prospection commerciale.

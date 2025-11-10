@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -225,16 +225,20 @@
             margin-top: 10px;
         }
     </style>
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Dashboard Analytics Temps Réel</h1>
+            <h1>ðŸ“Š Dashboard Analytics Temps RÃ©el</h1>
             <p>VOC-Call - Suivi des performances en direct</p>
             <div>
                 <span class="realtime-indicator"></span>
-                <span>Données en temps réel</span>
-                <button class="refresh-btn" onclick="refreshData()">🔄 Actualiser</button>
+                <span>DonnÃ©es en temps rÃ©el</span>
+                <button class="refresh-btn" onclick="refreshData()">ðŸ”„ Actualiser</button>
             </div>
         </div>
         
@@ -258,14 +262,14 @@
                 </div>
                 <div class="metric-card">
                     <div class="metric-label">Revenus Aujourd'hui</div>
-                    <div class="metric-number" id="todayRevenue">€1,247</div>
+                    <div class="metric-number" id="todayRevenue">â‚¬1,247</div>
                     <div class="metric-change metric-up" id="todayRevenueChange">+18% vs hier</div>
                 </div>
             </div>
 
             <!-- Graphiques de Performance -->
             <div class="chart-container">
-                <h3>📈 Trafic des 7 Derniers Jours</h3>
+                <h3>ðŸ“ˆ Trafic des 7 Derniers Jours</h3>
                 <div class="chart-placeholder">
                     <div class="chart-bar"></div>
                     <div class="chart-bar"></div>
@@ -277,14 +281,14 @@
                     <div class="chart-bar"></div>
                     <div class="chart-bar"></div>
                     <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #666;">
-                        📊 Graphique interactif - Sessions par jour
+                        ðŸ“Š Graphique interactif - Sessions par jour
                     </div>
                 </div>
             </div>
 
-            <!-- Pages les Plus Visitées -->
+            <!-- Pages les Plus VisitÃ©es -->
             <div class="chart-container">
-                <h3>📄 Top Pages Aujourd'hui</h3>
+                <h3>ðŸ“„ Top Pages Aujourd'hui</h3>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -292,7 +296,7 @@
                                 <th>Page</th>
                                 <th>Vues</th>
                                 <th>Utilisateurs</th>
-                                <th>Durée Moy.</th>
+                                <th>DurÃ©e Moy.</th>
                                 <th>Taux Rebond</th>
                                 <th>Conversions</th>
                             </tr>
@@ -345,12 +349,12 @@
 
             <!-- Sources de Trafic -->
             <div class="chart-container">
-                <h3>🌐 Sources de Trafic Aujourd'hui</h3>
+                <h3>ðŸŒ Sources de Trafic Aujourd'hui</h3>
                 <div class="chart-placeholder">
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+                        <div style="font-size: 2rem; margin-bottom: 10px;">ðŸ“Š</div>
                         <div>Organique: 45.3% | Direct: 28.1% | Social: 12.4%</div>
-                        <div>Email: 8.2% | Référents: 6.0%</div>
+                        <div>Email: 8.2% | RÃ©fÃ©rents: 6.0%</div>
                     </div>
                 </div>
             </div>
@@ -366,7 +370,7 @@
                     <small>80% de l'objectif quotidien (10)</small>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Téléchargements</div>
+                    <div class="metric-label">TÃ©lÃ©chargements</div>
                     <div class="metric-number" id="downloads">15</div>
                     <div class="goal-progress">
                         <div class="goal-progress-bar" style="width: 75%"></div>
@@ -382,7 +386,7 @@
                     <small>60% de l'objectif quotidien (20)</small>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Appels Téléphoniques</div>
+                    <div class="metric-label">Appels TÃ©lÃ©phoniques</div>
                     <div class="metric-number" id="phoneCalls">5</div>
                     <div class="goal-progress">
                         <div class="goal-progress-bar" style="width: 50%"></div>
@@ -391,24 +395,24 @@
                 </div>
             </div>
 
-            <!-- Mots-clés Performants -->
+            <!-- Mots-clÃ©s Performants -->
             <div class="chart-container">
-                <h3>🔑 Mots-clés Performants Aujourd'hui</h3>
+                <h3>ðŸ”‘ Mots-clÃ©s Performants Aujourd'hui</h3>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>Mot-clé</th>
+                                <th>Mot-clÃ©</th>
                                 <th>Position</th>
                                 <th>Clics</th>
                                 <th>CTR</th>
                                 <th>Impressions</th>
-                                <th>Évolution</th>
+                                <th>Ã‰volution</th>
                             </tr>
                         </thead>
                         <tbody id="keywordsTable">
                             <tr>
-                                <td>centre d'appel télétravail</td>
+                                <td>centre d'appel tÃ©lÃ©travail</td>
                                 <td>3</td>
                                 <td>12</td>
                                 <td>8.2%</td>
@@ -432,7 +436,7 @@
                                 <td><span class="metric-change metric-up">+3</span></td>
                             </tr>
                             <tr>
-                                <td>téléconseiller indépendant</td>
+                                <td>tÃ©lÃ©conseiller indÃ©pendant</td>
                                 <td>4</td>
                                 <td>7</td>
                                 <td>7.1%</td>
@@ -440,7 +444,7 @@
                                 <td><span class="metric-change metric-up">+1</span></td>
                             </tr>
                             <tr>
-                                <td>centre d appel à distance</td>
+                                <td>centre d appel Ã  distance</td>
                                 <td>6</td>
                                 <td>6</td>
                                 <td>6.2%</td>
@@ -454,22 +458,22 @@
 
             <!-- Alertes et Notifications -->
             <div class="chart-container">
-                <h3>⚠️ Alertes et Notifications</h3>
+                <h3>âš ï¸ Alertes et Notifications</h3>
                 
                 <div class="alert alert-success">
-                    <strong>✅ Excellent :</strong> Le taux de conversion a augmenté de 0.4% aujourd'hui. Continuez les optimisations CTA.
+                    <strong>âœ… Excellent :</strong> Le taux de conversion a augmentÃ© de 0.4% aujourd'hui. Continuez les optimisations CTA.
                 </div>
                 
                 <div class="alert alert-warning">
-                    <strong>⚠️ Attention :</strong> Le trafic mobile est en baisse de 15% aujourd'hui. Vérifiez l'expérience mobile.
+                    <strong>âš ï¸ Attention :</strong> Le trafic mobile est en baisse de 15% aujourd'hui. VÃ©rifiez l'expÃ©rience mobile.
                 </div>
                 
                 <div class="alert alert-info">
-                    <strong>💡 Recommandation :</strong> 3 nouveaux mots-clés dans le top 10 aujourd'hui. Maintenez la stratégie de contenu.
+                    <strong>ðŸ’¡ Recommandation :</strong> 3 nouveaux mots-clÃ©s dans le top 10 aujourd'hui. Maintenez la stratÃ©gie de contenu.
                 </div>
                 
                 <div class="alert alert-success">
-                    <strong>🎉 Succès :</strong> Objectif de demandes de devis atteint à 80% en milieu de journée.
+                    <strong>ðŸŽ‰ SuccÃ¨s :</strong> Objectif de demandes de devis atteint Ã  80% en milieu de journÃ©e.
                 </div>
             </div>
 
@@ -492,15 +496,15 @@
                 </div>
             </div>
 
-            <!-- Dernière mise à jour -->
+            <!-- DerniÃ¨re mise Ã  jour -->
             <div class="last-updated">
-                Dernière mise à jour: <span id="lastUpdate">19/12/2024 14:30:25</span>
+                DerniÃ¨re mise Ã  jour: <span id="lastUpdate">19/12/2024 14:30:25</span>
             </div>
         </div>
     </div>
 
     <script>
-        // Simulation de données en temps réel
+        // Simulation de donnÃ©es en temps rÃ©el
         function generateRandomData() {
             return {
                 activeUsers: Math.floor(Math.random() * 50) + 100,
@@ -514,30 +518,30 @@
             };
         }
 
-        // Mise à jour des métriques
+        // Mise Ã  jour des mÃ©triques
         function updateMetrics() {
             const data = generateRandomData();
             
-            // Mise à jour des KPIs principaux
+            // Mise Ã  jour des KPIs principaux
             document.getElementById('activeUsers').textContent = data.activeUsers;
             document.getElementById('todaySessions').textContent = data.todaySessions;
             document.getElementById('conversionRate').textContent = data.conversionRate + '%';
-            document.getElementById('todayRevenue').textContent = '€' + data.todayRevenue.toLocaleString();
+            document.getElementById('todayRevenue').textContent = 'â‚¬' + data.todayRevenue.toLocaleString();
             
-            // Mise à jour des objectifs
+            // Mise Ã  jour des objectifs
             document.getElementById('quoteRequests').textContent = data.quoteRequests;
             document.getElementById('downloads').textContent = data.downloads;
             document.getElementById('newsletterSignups').textContent = data.newsletterSignups;
             document.getElementById('phoneCalls').textContent = data.phoneCalls;
             
-            // Mise à jour des barres de progression
+            // Mise Ã  jour des barres de progression
             updateProgressBars(data);
             
-            // Mise à jour de l'heure
+            // Mise Ã  jour de l'heure
             document.getElementById('lastUpdate').textContent = new Date().toLocaleString('fr-FR');
         }
 
-        // Mise à jour des barres de progression
+        // Mise Ã  jour des barres de progression
         function updateProgressBars(data) {
             const quoteProgress = (data.quoteRequests / 10) * 100;
             const downloadProgress = (data.downloads / 20) * 100;
@@ -562,7 +566,7 @@
             });
         }
 
-        // Fonction de rafraîchissement
+        // Fonction de rafraÃ®chissement
         function refreshData() {
             updateMetrics();
             animateProgressBars();
@@ -577,7 +581,7 @@
             });
         }
 
-        // Mise à jour automatique toutes les 30 secondes
+        // Mise Ã  jour automatique toutes les 30 secondes
         setInterval(updateMetrics, 30000);
 
         // Animation au chargement
@@ -597,29 +601,31 @@
             });
         });
 
-        // Simulation d'événements en temps réel
+        // Simulation d'Ã©vÃ©nements en temps rÃ©el
         function simulateRealtimeEvents() {
             const events = [
-                'Nouvelle demande de devis reçue',
-                'Téléchargement de guide PDF',
+                'Nouvelle demande de devis reÃ§ue',
+                'TÃ©lÃ©chargement de guide PDF',
                 'Inscription newsletter',
-                'Appel téléphonique',
+                'Appel tÃ©lÃ©phonique',
                 'Nouvelle visite sur la page services',
                 'Conversion sur la page contact'
             ];
             
             setInterval(() => {
-                if (Math.random() < 0.3) { // 30% de chance d'événement
+                if (Math.random() < 0.3) { // 30% de chance d'Ã©vÃ©nement
                     const event = events[Math.floor(Math.random() * events.length)];
-                    console.log(`🔔 ${event} - ${new Date().toLocaleTimeString()}`);
+                    console.log(`ðŸ”” ${event} - ${new Date().toLocaleTimeString()}`);
                 }
             }, 10000); // Toutes les 10 secondes
         }
 
-        // Démarrer la simulation
+        // DÃ©marrer la simulation
         simulateRealtimeEvents();
     </script>
 </body>
 </html>
+
+
 
 

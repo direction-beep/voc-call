@@ -44,6 +44,8 @@ _Last updated: 2025-11-11_
 - **Guest posts** : CRM/logiciel relation client (Sellsy, HubSpot France blog invités), sites SaaS support.
 - **Cas clients** : produire 2 études de cas (secteur e-commerce, juridique) et les distribuer.
 - **Webinaires** : “Externalisation service client en France” (transcription en article).
+- **Backlinks** : Campagne trimestrielle (médias relation client, SaaS partenaires, annuaires B2B). Voir `seo/editorial-backlink-plan.md` pour la liste cible et le monitoring.
+- **Content calendar** : calendrier 12 semaines détaillé dans `seo/editorial-backlink-plan.md` (guides piliers, middle-funnel, études de cas).
 
 ## 6. Monitoring
 

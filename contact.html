@@ -136,17 +136,7 @@
                     </p>
                 </div>
                 <div class="tally-embed-wrapper">
-                    <iframe
-                        data-tally-src="https://tally.so/r/aQN1dZ?transparentBackground=1"
-                        width="100%"
-                        height="720"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        title="Devis VOC-Call"
-                        loading="lazy"
-                        allow="fullscreen"
-                    ></iframe>
+                    <iframe data-tally-src="https://tally.so/embed/aQN1dZ?hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Devis VOC-Call"></iframe>
                 </div>
             </div>
         </div>
@@ -236,7 +226,30 @@
         </div>
     </div>
 
-    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script>
+        (function () {
+            var d = document;
+            var w = "https://tally.so/widgets/embed.js";
+            var v = function () {
+                if (typeof Tally !== "undefined") {
+                    Tally.loadEmbeds();
+                } else {
+                    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                        e.src = e.dataset.tallySrc;
+                    });
+                }
+            };
+            if (typeof Tally !== "undefined") {
+                v();
+            } else if (d.querySelector('script[src="' + w + '"]') == null) {
+                var s = d.createElement("script");
+                s.src = w;
+                s.onload = v;
+                s.onerror = v;
+                d.body.appendChild(s);
+            }
+        })();
+    </script>
     <script src="js/main.js"></script>
     <script src="js/header-cleanup.js"></script>
 </body>

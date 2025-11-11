@@ -4482,43 +4482,6 @@ img {
     outline: none !important;
 }
 
-/* Prospection bullets - Force visibility */
-.prospection-bullets {
-    margin: 16px 0 0 0 !important;
-    padding: 16px 0 0 0 !important;
-    color: #0e4580 !important;
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;
-    border-top: 1px solid #e0e0e0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 10 !important;
-    background: transparent !important;
-}
-
-.prospection-bullets div {
-    margin-bottom: 8px !important;
-    padding: 4px 0 !important;
-    color: #0e4580 !important;
-    font-size: 0.9rem !important;
-    font-weight: 500 !important;
-    line-height: 1.4 !important;
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 10 !important;
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-}
-
 /* Chat bullets - Force visibility */
 .chat-bullets {
     margin: 16px 0 0 0 !important;

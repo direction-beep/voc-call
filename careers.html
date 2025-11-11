@@ -583,11 +583,17 @@
             </div>
             <div class="form-container">
                 <div id="candidate-success-placeholder"></div>
-                <form class="candidate-form-content" id="candidate-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST">
+                <div id="candidate-form-alert" class="form-alert" role="alert" aria-live="assertive"></div>
+                <form class="candidate-form-content" id="candidate-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST" data-spam-guard="true" data-spam-guard-target="#candidate-form-alert">
                     <input type="hidden" name="_subject" value="Nouvelle candidature - VOC-Call">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://voc-call.vercel.app/careers.html?success=1#candidate-form">
+                    <input type="hidden" name="_spam_guard_elapsed" data-spam-guard-elapsed value="">
+                    <div class="candidate-field spam-guard-honeypot" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                        <label for="candidate-website">Laissez ce champ vide</label>
+                        <input type="text" id="candidate-website" name="_honey" tabindex="-1" autocomplete="off" data-spam-guard-honeypot>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="first-name">Prénom *</label>
@@ -705,7 +711,7 @@
     </div>
 
     <script src="js/main.js"></script>
-
+    <script src="js/form-guard.js"></script>
     <script src="js/header-cleanup.js"></script>
     <script>
     (function() {

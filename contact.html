@@ -136,11 +136,17 @@
                     </p>
                 </div>
                 <div id="contact-success-placeholder"></div>
-                <form class="contact-form" id="contact-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST">
+                <div id="contact-form-alert" class="form-alert" role="alert" aria-live="assertive"></div>
+                <form class="contact-form" id="contact-form-element" action="https://formsubmit.co/direction@voc-call.fr" method="POST" data-spam-guard="true" data-spam-guard-target="#contact-form-alert">
                     <input type="hidden" name="_subject" value="Nouvelle demande de contact - VOC-Call">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://voc-call.vercel.app/contact.html?success=1#contact-form">
+                    <input type="hidden" name="_spam_guard_elapsed" data-spam-guard-elapsed value="">
+                    <div class="form-group spam-guard-honeypot" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                        <label for="company-website">Laissez ce champ vide</label>
+                        <input type="text" id="company-website" name="_honey" tabindex="-1" autocomplete="off" data-spam-guard-honeypot>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="company">Société *</label>
@@ -308,6 +314,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/header-cleanup.js"></script>
+    <script src="js/form-guard.js"></script>
     <script>
     (function() {
         try {

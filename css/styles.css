@@ -1,3 +1,13 @@
+.contact-info-section {
+    margin-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+    .contact-info-section {
+        margin-bottom: 5rem;
+    }
+}
+
 /* Progressive rendering: avoid work below the fold on first paint */
 .services, .about, .why-choose-us, .testimonials, .stats-section,
 .mission-vision, .team, .cta, .values, .our-story {

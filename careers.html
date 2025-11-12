@@ -723,8 +723,10 @@
 
                 if (data && data.event === "Tally.FormSubmitted") {
                     var payload = data.payload || {};
+                    console.log("Soumission Tally détectée", payload);
                     if (typeof gtag === "function") {
                         gtag("event", "tally_form_submit", {
+                            debug_mode: true,
                             form_id: payload.formId,
                             form_name: payload.formName,
                             form_url: window.location.href

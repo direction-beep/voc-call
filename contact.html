@@ -256,6 +256,35 @@
             }
         })();
     </script>
+    <script>
+        (function () {
+            var tallyOrigin = "https://tally.so";
+
+            window.addEventListener("message", function (event) {
+                if (event.origin !== tallyOrigin) {
+                    return;
+                }
+
+                var data;
+                try {
+                    data = typeof event.data === "string" ? JSON.parse(event.data) : event.data;
+                } catch (err) {
+                    return;
+                }
+
+                if (data && data.event === "Tally.FormSubmitted") {
+                    var payload = data.payload || {};
+                    if (typeof gtag === "function") {
+                        gtag("event", "tally_form_submit", {
+                            form_id: payload.formId,
+                            form_name: payload.formName,
+                            form_url: window.location.href
+                        });
+                    }
+                }
+            });
+        })();
+    </script>
     <script src="js/main.js"></script>
     <script src="js/header-cleanup.js"></script>
 </body>

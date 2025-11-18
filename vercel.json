@@ -1,7 +1,152 @@
 {
-  "functions": {
-    "api/webhook-linkedin.js": {
-      "maxDuration": 30
+  "outputDirectory": ".",
+  "buildCommand": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer-when-downgrade"
+        }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(woff2|woff|ttf|otf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
-  }
+  ],
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/carte-france.html",
+      "destination": "/carte-france",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/test-css",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/test-css.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/test-css/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:slug.html",
+      "destination": "/:slug",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/devis-:slug",
+      "destination": "/api/devis-redirect?slug=:slug"
+    },
+    {
+      "source": "/demenageur-:slug",
+      "destination": "/api/demenageur-redirect?slug=:slug"
+    },
+    {
+      "source": "/css/styles.min.css",
+      "destination": "/css/styles.css"
+    },
+    {
+      "source": "/js/:file.min.js",
+      "destination": "/js/:file.js"
+    }
+  ]
 }

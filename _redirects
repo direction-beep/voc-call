@@ -1,0 +1,5 @@
+# Netlify redirects - Force HTTPS
+http://voc-call.fr/* https://voc-call.fr/:splat 301!
+http://www.voc-call.fr/* https://voc-call.fr/:splat 301!
+https://www.voc-call.fr/* https://voc-call.fr/:splat 301!
+

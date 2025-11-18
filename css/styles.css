@@ -7587,17 +7587,16 @@ html {
     padding: var(--spacing-lg) var(--spacing-md);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
     z-index: 10000;
-    /* CRITIQUE: Toujours présent pour éviter layout shift, mais invisible par défaut */
+    /* CRITIQUE: Toujours présent mais hors écran pour éviter layout shift */
     transform: translateY(100%);
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    /* Réserver l'espace pour éviter le layout shift */
-    min-height: 0;
-    max-height: 200px;
-    /* S'assurer que le banner ne prend pas d'espace quand caché */
+    /* Ne pas réserver d'espace - position fixed ne cause pas de layout shift */
     will-change: transform;
+    /* S'assurer qu'il ne cause pas de reflow */
+    contain: layout style paint;
 }
 
 .cookie-banner.show {
@@ -7605,6 +7604,8 @@ html {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    /* S'assurer qu'il ne cause pas de reflow lors de l'apparition */
+    contain: layout style paint;
 }
 
 .cookie-banner-content {

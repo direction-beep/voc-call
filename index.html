@@ -19,8 +19,8 @@
     <link rel="canonical" href="https://voc-call.com/">
     <link rel="preload" as="style" href="css/styles.css?v=20251030" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251030"></noscript>
-    <!-- Optimisation : preload de l'image hero UNIQUEMENT sur desktop (pas mobile pour améliorer LCP) -->
-    <!-- Le preload sera ajouté dynamiquement après le chargement initial pour ne pas bloquer mobile -->
+    <!-- Optimisation : preload de l'image hero pour desktop -->
+    <link rel="preload" as="image" href="images/hero/hero-call-center.jpg" imagesrcset="images/hero/hero-call-center.jpg 1200w" imagesizes="(min-width: 768px) 1000px, 50vw" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -512,59 +512,9 @@
     </div>
 
     <script defer src="js/main.js"></script>
-    <!-- Scripts non critiques différés pour améliorer le temps de chargement mobile -->
-    <script>
-        // Précharger l'image hero uniquement sur desktop (après chargement initial)
-        if (window.innerWidth >= 768) {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = 'images/hero/hero-call-center.jpg';
-            link.setAttribute('imagesrcset', 'images/hero/hero-call-center.jpg 1200w');
-            link.setAttribute('imagesizes', '(min-width: 768px) 1000px, 50vw');
-            link.fetchPriority = 'high';
-            document.head.appendChild(link);
-        }
-        
-        // Charger les scripts non critiques après le chargement initial
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(function() {
-                // Charger schema-markup et header-cleanup de manière asynchrone
-                const script1 = document.createElement('script');
-                script1.src = 'js/schema-markup.js';
-                script1.defer = true;
-                document.body.appendChild(script1);
-                
-                const script2 = document.createElement('script');
-                script2.src = 'js/header-cleanup.js';
-                script2.defer = true;
-                document.body.appendChild(script2);
-                
-                const script3 = document.createElement('script');
-                script3.src = 'force-styles.js';
-                script3.defer = true;
-                document.body.appendChild(script3);
-            }, { timeout: 2000 });
-        } else {
-            // Fallback pour navigateurs sans requestIdleCallback
-            setTimeout(function() {
-                const script1 = document.createElement('script');
-                script1.src = 'js/schema-markup.js';
-                script1.defer = true;
-                document.body.appendChild(script1);
-                
-                const script2 = document.createElement('script');
-                script2.src = 'js/header-cleanup.js';
-                script2.defer = true;
-                document.body.appendChild(script2);
-                
-                const script3 = document.createElement('script');
-                script3.src = 'force-styles.js';
-                script3.defer = true;
-                document.body.appendChild(script3);
-            }, 3000);
-        }
-    </script>
+    <script defer src="js/schema-markup.js"></script>
+    <script defer src="js/header-cleanup.js"></script>
+    <script defer src="force-styles.js"></script>
     
     <!-- Google Analytics 4 - Déplacé en fin de body pour ne pas bloquer le rendu -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMNGSGF5WN"></script>

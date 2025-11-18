@@ -82,25 +82,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cookieDecline = document.getElementById('cookie-decline');
 
     // Check if user has already made a choice
-    // CRITIQUE: Ne pas utiliser setTimeout pour éviter layout shift
-    // Le banner est toujours présent dans le DOM, on change juste sa visibilité
+    // CRITIQUE: Afficher immédiatement sans délai pour éviter layout shift
     if (!localStorage.getItem('cookieConsent')) {
-        // Utiliser requestAnimationFrame pour un affichage fluide sans layout shift
-        requestAnimationFrame(() => {
-            if (cookieBanner) {
-                cookieBanner.classList.add('show');
-                // Ne plus modifier les styles inline - tout est géré par CSS
-                console.log('Cookie banner shown');
-            } else {
-                console.error('Cookie banner element not found!');
-            }
-        });
+        if (cookieBanner) {
+            // Afficher immédiatement sans animation pour éviter layout shift
+            cookieBanner.classList.add('show');
+        }
     } else {
         // Si le consentement existe, s'assurer que le banner reste caché
         if (cookieBanner) {
             cookieBanner.classList.remove('show');
         }
-        console.log('Cookie consent already given:', localStorage.getItem('cookieConsent'));
     }
 
     if (cookieAccept) {

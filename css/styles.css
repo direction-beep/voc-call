@@ -1086,7 +1086,86 @@ img {
     margin: 0;
 }
 
-/* Page Implantations */
+/* Section Geographic Coverage (dans about.html) */
+.geographic-coverage {
+    padding: var(--spacing-4xl) 0;
+    background: #f8f9fa;
+}
+
+.geographic-coverage .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.geographic-coverage .city-item {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.geographic-coverage .city-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.geographic-coverage .city-icon {
+    color: var(--color-blue);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.geographic-coverage .city-item h3 {
+    color: var(--color-blue);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.geographic-coverage .city-region {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.geographic-coverage .city-services {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: var(--spacing-sm);
+}
+
+.geographic-coverage .coverage-cta {
+    margin-top: var(--spacing-4xl);
+    text-align: center;
+    padding: var(--spacing-3xl);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.geographic-coverage .coverage-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: var(--spacing-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.geographic-coverage .coverage-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Page Implantations (désactivée - styles conservés pour référence) */
 .map-section {
     padding: var(--spacing-4xl) 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);

@@ -82,20 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const cookieDecline = document.getElementById('cookie-decline');
 
     // Check if user has already made a choice
+    // CRITIQUE: Ne pas utiliser setTimeout pour éviter layout shift
+    // Le banner est toujours présent dans le DOM, on change juste sa visibilité
     if (!localStorage.getItem('cookieConsent')) {
-        setTimeout(() => {
+        // Utiliser requestAnimationFrame pour un affichage fluide sans layout shift
+        requestAnimationFrame(() => {
             if (cookieBanner) {
                 cookieBanner.classList.add('show');
-                cookieBanner.style.display = 'block';
-                cookieBanner.style.visibility = 'visible';
-                cookieBanner.style.opacity = '1';
-                cookieBanner.style.transform = 'translateY(0)';
+                // Ne plus modifier les styles inline - tout est géré par CSS
                 console.log('Cookie banner shown');
             } else {
                 console.error('Cookie banner element not found!');
             }
-        }, 1000); // Reduced delay for testing
+        });
     } else {
+        // Si le consentement existe, s'assurer que le banner reste caché
+        if (cookieBanner) {
+            cookieBanner.classList.remove('show');
+        }
         console.log('Cookie consent already given:', localStorage.getItem('cookieConsent'));
     }
 
@@ -106,10 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('cookieConsent', 'accepted');
             if (cookieBanner) {
                 cookieBanner.classList.remove('show');
-                cookieBanner.style.display = 'none';
-                cookieBanner.style.visibility = 'hidden';
-                cookieBanner.style.opacity = '0';
-                cookieBanner.style.transform = 'translateY(100%)';
+                // Ne plus modifier les styles inline - tout est géré par CSS
             }
             console.log('Cookies accepted');
         });
@@ -124,10 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('cookieConsent', 'declined');
             if (cookieBanner) {
                 cookieBanner.classList.remove('show');
-                cookieBanner.style.display = 'none';
-                cookieBanner.style.visibility = 'hidden';
-                cookieBanner.style.opacity = '0';
-                cookieBanner.style.transform = 'translateY(100%)';
+                // Ne plus modifier les styles inline - tout est géré par CSS
             }
             console.log('Cookies declined');
         });

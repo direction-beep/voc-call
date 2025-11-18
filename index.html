@@ -19,8 +19,22 @@
     <link rel="canonical" href="https://voc-call.com/">
     <link rel="preload" as="style" href="css/styles.css?v=20251030" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251030"></noscript>
-    <!-- Optimisation : preload de l'image hero pour desktop -->
-    <link rel="preload" as="image" href="images/hero/hero-call-center.jpg" imagesrcset="images/hero/hero-call-center.jpg 1200w" imagesizes="(min-width: 768px) 1000px, 50vw" fetchpriority="high">
+    <!-- Optimisation : preload de l'image hero UNIQUEMENT sur desktop (pas mobile pour améliorer LCP mobile) -->
+    <script>
+        // Précharger l'image hero uniquement sur desktop après le chargement initial
+        if (window.innerWidth >= 768 && 'requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = 'images/hero/hero-call-center.jpg';
+                link.setAttribute('imagesrcset', 'images/hero/hero-call-center.jpg 1200w');
+                link.setAttribute('imagesizes', '(min-width: 768px) 1000px, 50vw');
+                link.fetchPriority = 'high';
+                document.head.appendChild(link);
+            });
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -137,7 +151,7 @@
                      fetchpriority="high" 
                      loading="eager"
                      sizes="(max-width: 767px) 100vw, 50vw"
-                     style="aspect-ratio: 1200/500; object-fit: cover; width: 100%; height: auto; display: block;">
+                     style="aspect-ratio: 1200/500; object-fit: cover; display: block;">
             </div>
         </div>
     </section>

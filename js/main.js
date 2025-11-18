@@ -82,11 +82,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const cookieDecline = document.getElementById('cookie-decline');
 
     // Check if user has already made a choice
-    // CRITIQUE: Afficher immédiatement sans délai pour éviter layout shift
+    // CRITIQUE: Attendre que la page soit complètement chargée avant d'afficher pour éviter CLS
     if (!localStorage.getItem('cookieConsent')) {
-        if (cookieBanner) {
-            // Afficher immédiatement sans animation pour éviter layout shift
-            cookieBanner.classList.add('show');
+        // Attendre que tout soit chargé pour éviter layout shift
+        if (document.readyState === 'complete') {
+            // Page déjà chargée, afficher immédiatement
+            if (cookieBanner) {
+                cookieBanner.classList.add('show');
+            }
+        } else {
+            // Attendre le chargement complet
+            window.addEventListener('load', function() {
+                if (cookieBanner) {
+                    cookieBanner.classList.add('show');
+                }
+            });
         }
     } else {
         // Si le consentement existe, s'assurer que le banner reste caché

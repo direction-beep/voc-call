@@ -19,15 +19,18 @@
     <link rel="canonical" href="https://voc-call.com/">
     <link rel="preload" as="style" href="css/styles.css?v=20251030" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251030"></noscript>
-    <link rel="preload" as="image" href="images/hero/hero-call-center.jpg" imagesrcset="images/hero/hero-call-center.jpg 1200w" imagesizes="(min-width: 768px) 1000px, 100vw" fetchpriority="high">
+    <!-- Optimisation : preload de l'image hero pour desktop uniquement -->
+    <link rel="preload" as="image" href="images/hero/hero-call-center.jpg" imagesrcset="images/hero/hero-call-center.jpg 1200w" imagesizes="(min-width: 768px) 1000px, 50vw" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -110,7 +113,7 @@
       .hero-title{font-size:28px;line-height:1.2;margin:8px 0}
       .hero-subtitle{margin:0 0 8px 0}
       .hero-buttons .btn{display:inline-block;padding:10px 16px}
-      .hero-image img{width:100%;height:auto;border-radius:12px;display:block}
+      .hero-image img{width:100%;height:auto;aspect-ratio:1200/500;object-fit:cover;border-radius:12px;display:block}
       @media(min-width:768px){.hero-container{grid-template-columns:1.1fr .9fr}.hero{padding:48px 0}.hero-title{font-size:42px}}
     </style>
     <!-- Hero Section -->
@@ -131,7 +134,19 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/hero/hero-call-center.jpg" alt="Call center France - Équipe VOC-Call professionnelle au travail dans centre de contact" class="hero-img" width="1200" height="500" decoding="async" fetchpriority="high" sizes="(max-width: 767px) 100vw, 50vw">
+                <img src="images/hero/hero-call-center.jpg" 
+                     srcset="images/hero/hero-call-center.jpg 1200w,
+                             images/hero/hero-call-center.jpg 800w,
+                             images/hero/hero-call-center.jpg 600w"
+                     alt="Call center France - Équipe VOC-Call professionnelle au travail dans centre de contact" 
+                     class="hero-img" 
+                     width="1200" 
+                     height="500" 
+                     decoding="async" 
+                     fetchpriority="high" 
+                     loading="eager"
+                     sizes="(max-width: 767px) 100vw, 50vw"
+                     style="aspect-ratio: 1200/500; object-fit: cover;">
             </div>
         </div>
     </section>
@@ -509,6 +524,15 @@
     <script defer src="js/schema-markup.js"></script>
     <script defer src="js/header-cleanup.js"></script>
     <script defer src="force-styles.js"></script>
+    <!-- Optimisation mobile : différer le chargement des scripts non critiques -->
+    <script>
+        // Charger les scripts non critiques après le chargement initial
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                // Scripts non critiques chargés ici si nécessaire
+            });
+        }
+    </script>
 </body>
 </html>
 

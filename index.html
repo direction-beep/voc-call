@@ -20,21 +20,6 @@
     <link rel="preload" as="style" href="css/styles.css?v=20251030" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251030"></noscript>
     <!-- Optimisation : preload de l'image hero UNIQUEMENT sur desktop (pas mobile pour améliorer LCP mobile) -->
-    <script>
-        // Précharger l'image hero uniquement sur desktop après le chargement initial
-        if (window.innerWidth >= 768 && 'requestIdleCallback' in window) {
-            requestIdleCallback(function() {
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'image';
-                link.href = 'images/hero/hero-call-center.jpg';
-                link.setAttribute('imagesrcset', 'images/hero/hero-call-center.jpg 1200w');
-                link.setAttribute('imagesizes', '(min-width: 768px) 1000px, 50vw');
-                link.fetchPriority = 'high';
-                document.head.appendChild(link);
-            });
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -529,6 +514,23 @@
     <script defer src="js/schema-markup.js"></script>
     <script defer src="js/header-cleanup.js"></script>
     <script defer src="force-styles.js"></script>
+    
+    <!-- Précharger l'image hero uniquement sur desktop après le chargement initial -->
+    <script>
+        // Précharger l'image hero uniquement sur desktop après le chargement initial
+        if (window.innerWidth >= 768 && 'requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = 'images/hero/hero-call-center.jpg';
+                link.setAttribute('imagesrcset', 'images/hero/hero-call-center.jpg 1200w');
+                link.setAttribute('imagesizes', '(min-width: 768px) 1000px, 50vw');
+                link.fetchPriority = 'high';
+                document.head.appendChild(link);
+            });
+        }
+    </script>
     
     <!-- Google Analytics 4 - Déplacé en fin de body pour ne pas bloquer le rendu -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMNGSGF5WN"></script>

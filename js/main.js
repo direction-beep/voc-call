@@ -413,36 +413,12 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = scrolled + '%';
     });
 
-    // Simple reveal animations for cards only
-    const cardElements = document.querySelectorAll('.service-card, .testimonial-card, .feature-item');
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.2 });
-
-    cardElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        cardObserver.observe(el);
-    });
-
-    // Simple fade-in for hero title
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.style.opacity = '0';
-        heroTitle.style.transform = 'translateY(20px)';
-        heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        
-        setTimeout(() => {
-            heroTitle.style.opacity = '1';
-            heroTitle.style.transform = 'translateY(0)';
-        }, 300);
-    }
+    // DISABLED: Simple reveal animations for cards - CAUSES CLS
+    // Cards are now visible by default to prevent layout shifts
+    // Animation removed to improve CLS score
+    
+    // DISABLED: Simple fade-in for hero title - CAUSES CLS
+    // Hero title is now visible by default to prevent layout shifts
 
     // Simple hover effects for better UX
     const interactiveElements = document.querySelectorAll('.service-card, .btn, .nav-link');

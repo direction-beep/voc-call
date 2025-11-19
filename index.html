@@ -26,6 +26,8 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <!-- Preload critical fonts to prevent FOUT and CLS -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -110,6 +112,8 @@
       @media(max-width:767px){.hero-image{aspect-ratio:16/9}}
       .cookie-banner{position:fixed;bottom:0;left:0;right:0;height:auto;min-height:0;max-height:200px;transform:translateY(100%);opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
       .cookie-banner.show{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;transition:transform 0.3s ease-out,opacity 0.3s ease-out}
+      .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:10001;min-height:3px;max-height:3px}
+      .fas,.far,.fab,.fa{display:inline-block;width:1em;height:1em;min-width:1em;min-height:1em;vertical-align:middle}
       .service-icon{position:relative}
       .service-icon i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;color:#fff}
       .feature-icon{width:80px;height:80px;background:linear-gradient(135deg,#0e4580 0%,#d03840 100%);border-radius:50%;display:flex;justify-content:center;align-items:center;margin:0 auto 1rem;font-size:2.5rem;color:#fff;box-shadow:0 4px 15px rgba(14,69,128,0.3)}

@@ -73,6 +73,47 @@ img {
     flex-shrink: 0;
 }
 
+/* Fix CLS: Reserve space for Font Awesome icons to prevent layout shift */
+.fas, .far, .fab, .fa {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    /* Prevent layout shift when font loads */
+    min-width: 1em;
+    min-height: 1em;
+}
+
+/* Fix CLS: Progress bar dimensions */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-red) 100%);
+    z-index: 10001;
+    transition: width 0.1s ease;
+    /* Reserve space to prevent CLS */
+    min-height: 3px;
+    max-height: 3px;
+}
+
+/* Fix CLS: Scroll to top button dimensions */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    /* Reserve space to prevent CLS */
+    min-width: 50px;
+    min-height: 50px;
+    display: none;
+    z-index: 1000;
+}
+
 /* === Service Client Enhancements === */
 .cta-centered {
     text-align: center;

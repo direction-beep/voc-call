@@ -3919,6 +3919,14 @@ img[width][height] {
     box-shadow: 0 8px 30px rgba(14, 69, 128, 0.2);
     max-width: 400px;
     margin: 0 auto;
+    /* Fixer la hauteur minimale pour éviter layout shift */
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Prévenir les reflows */
+    contain: layout style paint;
 }
 
 .why-placeholder .about-icon {
@@ -3927,6 +3935,9 @@ img[width][height] {
     display: block;
     color: var(--color-white);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Fixer la hauteur pour éviter layout shift si Font Awesome charge tard */
+    min-height: 64px;
+    line-height: 64px;
 }
 
 .why-placeholder p {

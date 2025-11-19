@@ -82,22 +82,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const cookieDecline = document.getElementById('cookie-decline');
 
     // Check if user has already made a choice
-    // CRITIQUE: Attendre que la page soit complètement chargée avant d'afficher pour éviter CLS
+    // CRITIQUE: Attendre très longtemps avant d'afficher pour éviter CLS (après que l'utilisateur ait interagi)
     if (!localStorage.getItem('cookieConsent')) {
-        // Attendre que tout soit chargé pour éviter layout shift
-        if (document.readyState === 'complete') {
-            // Page déjà chargée, afficher immédiatement
-            if (cookieBanner) {
+        // Attendre que l'utilisateur ait interagi avec la page avant d'afficher le cookie banner
+        // Cela évite complètement le layout shift pendant le chargement initial
+        let userInteracted = false;
+        const showBanner = function() {
+            if (!userInteracted && cookieBanner) {
+                cookieBanner.classList.add('show');
+                userInteracted = true;
+            }
+        };
+        
+        // Afficher après interaction utilisateur (scroll, click, touch)
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function(event) {
+            window.addEventListener(event, showBanner, { once: true, passive: true });
+        });
+        
+        // Fallback: afficher après 5 secondes si pas d'interaction
+        setTimeout(function() {
+            if (!userInteracted && cookieBanner) {
                 cookieBanner.classList.add('show');
             }
-        } else {
-            // Attendre le chargement complet
-            window.addEventListener('load', function() {
-                if (cookieBanner) {
-                    cookieBanner.classList.add('show');
-                }
-            });
-        }
+        }, 5000);
     } else {
         // Si le consentement existe, s'assurer que le banner reste caché
         if (cookieBanner) {

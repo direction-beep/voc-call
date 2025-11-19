@@ -37,6 +37,33 @@
     height: 32px;
     aspect-ratio: 120 / 32;
     display: block;
+    object-fit: contain;
+}
+
+/* Fix CLS: ensure all images have dimensions */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix CLS: service cards and other components */
+.service-card,
+.testimonial-card,
+.about-card,
+.stat-card,
+.feature-card {
+    min-height: 200px; /* Reserve space to prevent layout shift */
+}
+
+/* Fix CLS: ensure icons have fixed dimensions */
+.service-icon,
+.feature-icon,
+.about-icon,
+.stat-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
 }
 
 /* === Service Client Enhancements === */
@@ -953,8 +980,23 @@ p {
     will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0);
-    /* Prévenir le layout shift */
+    /* Prévenir le layout shift - dimensions fixes */
     display: block;
+    max-width: 100%;
+    min-height: 0;
+}
+
+/* Fix dimensions to prevent CLS */
+.hero-image {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1200 / 500;
+}
+
+@media (max-width: 767px) {
+    .hero-image {
+        aspect-ratio: 16 / 9; /* More mobile-friendly ratio */
+    }
 }
 
 .hero-img:hover {

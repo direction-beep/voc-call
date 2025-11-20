@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Page d'accueil - Centre d'Appel Télétravail -->
   <url>
-    <loc>https://voc-call.com/</loc>
+    <loc>https://voc-call.fr/</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,56 +10,56 @@
   
   <!-- Pages SEO Local - Villes -->
   <url>
-    <loc>https://voc-call.com/centre-appel-paris</loc>
+    <loc>https://voc-call.fr/centre-appel-paris</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-lyon</loc>
+    <loc>https://voc-call.fr/centre-appel-lyon</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-marseille</loc>
+    <loc>https://voc-call.fr/centre-appel-marseille</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-toulouse</loc>
+    <loc>https://voc-call.fr/centre-appel-toulouse</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-nantes</loc>
+    <loc>https://voc-call.fr/centre-appel-nantes</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-bordeaux</loc>
+    <loc>https://voc-call.fr/centre-appel-bordeaux</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-lille</loc>
+    <loc>https://voc-call.fr/centre-appel-lille</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.com/centre-appel-strasbourg</loc>
+    <loc>https://voc-call.fr/centre-appel-strasbourg</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

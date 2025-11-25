@@ -3,3 +3,21 @@ http://voc-call.fr/* https://voc-call.fr/:splat 301!
 http://www.voc-call.fr/* https://voc-call.fr/:splat 301!
 https://www.voc-call.fr/* https://voc-call.fr/:splat 301!
 
+# Redirections pages services (sans .html vers avec .html)
+/gestion-reclamations /services/gestion-reclamations.html 301!
+/helpdesk /services/helpdesk.html 301!
+/permanence /services/permanence.html 301!
+/prospection /services/prospection.html 301!
+/relance-commerciale /services/relance-commerciale.html 301!
+/service-client /services/service-client.html 301!
+/standard-externalise /services/standard-externalise.html 301!
+/telesecretariat /services/telesecretariat.html 301!
+
+# Redirections guides PDFs
+/guides/calculateur-roi-service-client.csv /resources/guides/calculateur-roi-service-client.csv 301!
+/guides/pdfs/Checklist-Choisir-Call-Center-France.pdf /resources/guides/pdfs/Checklist-Choisir-Call-Center-France.pdf 301!
+/guides/pdfs/Guide-Externalisation-Service-Client-2025.pdf /resources/guides/pdfs/Guide-Externalisation-Service-Client-2025.pdf 301!
+/guides/pdfs/Guide-Homeshoring-Recrutement.pdf /resources/guides/pdfs/Guide-Homeshoring-Recrutement.pdf 301!
+/guides/pdfs/Guide-KPI-Service-Client.pdf /resources/guides/pdfs/Guide-KPI-Service-Client.pdf 301!
+/guides/pdfs/Guide-RGPD-Call-Center.pdf /resources/guides/pdfs/Guide-RGPD-Call-Center.pdf 301!
+/guides/pdfs/Template-Contrat-Externalisation.pdf /resources/guides/pdfs/Template-Contrat-Externalisation.pdf 301!

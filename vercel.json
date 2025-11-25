@@ -129,6 +129,46 @@
       "source": "/:slug.html",
       "destination": "/:slug",
       "statusCode": 301
+    },
+    {
+      "source": "/gestion-reclamations",
+      "destination": "/services/gestion-reclamations.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/helpdesk",
+      "destination": "/services/helpdesk.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/permanence",
+      "destination": "/services/permanence.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/prospection",
+      "destination": "/services/prospection.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/relance-commerciale",
+      "destination": "/services/relance-commerciale.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/service-client",
+      "destination": "/services/service-client.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/standard-externalise",
+      "destination": "/services/standard-externalise.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/telesecretariat",
+      "destination": "/services/telesecretariat.html",
+      "statusCode": 301
     }
   ],
   "rewrites": [

@@ -126,11 +126,6 @@
       "statusCode": 301
     },
     {
-      "source": "/:slug.html",
-      "destination": "/:slug",
-      "statusCode": 301
-    },
-    {
       "source": "/gestion-reclamations",
       "destination": "/services/gestion-reclamations.html",
       "statusCode": 301
@@ -168,6 +163,46 @@
     {
       "source": "/telesecretariat",
       "destination": "/services/telesecretariat.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/calculateur-roi-service-client.csv",
+      "destination": "/resources/guides/calculateur-roi-service-client.csv",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Checklist-Choisir-Call-Center-France.pdf",
+      "destination": "/resources/guides/checklist-choisir-call-center-france.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Guide-Externalisation-Service-Client-2025.pdf",
+      "destination": "/resources/guides/guide-externalisation-service-client-2025.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Guide-Homeshoring-Recrutement.pdf",
+      "destination": "/resources/guides/guide-homeshoring-recrutement.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Guide-KPI-Service-Client.pdf",
+      "destination": "/resources/guides/guide-kpi-service-client.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Guide-RGPD-Call-Center.pdf",
+      "destination": "/resources/guides/guide-rgpd-call-center.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/pdfs/Template-Contrat-Externalisation.pdf",
+      "destination": "/resources/guides/template-contrat-externalisation.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:slug.html",
+      "destination": "/:slug",
       "statusCode": 301
     }
   ],

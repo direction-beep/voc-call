@@ -166,6 +166,11 @@
       "statusCode": 301
     },
     {
+      "source": "/back-office",
+      "destination": "/services/back-office.html",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/calculateur-roi-service-client.csv",
       "destination": "/resources/guides/calculateur-roi-service-client.csv",
       "statusCode": 301

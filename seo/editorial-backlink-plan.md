@@ -84,3 +84,14 @@ _Mis à jour : 11/11/2025_
 1. Créer `seo/backlink-tracker.xlsx` et `seo/editorial-calendar.xlsx` (ou Google Sheets partagé).
 2. Mettre à jour le menu global (header/footer) pour inclure les nouvelles landing.
 3. Lancer la rédaction du premier guide (call center France) + préparer template Looker.
+
+
+
+
+
+
+
+
+
+
+

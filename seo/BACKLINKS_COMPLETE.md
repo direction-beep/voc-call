@@ -234,3 +234,8 @@ Pour toute question sur ce projet :
 **Statut** : ✅ Contenu créé, prêt pour conversion PDF et déploiement  
 **Prochaine étape** : Convertir les guides HTML en PDF
 
+
+
+
+
+

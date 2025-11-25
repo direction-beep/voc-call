@@ -244,3 +244,8 @@ _Mis à jour : 2025-11-18_
 
 _Prochaines étapes : Prioriser les 10 premières actions et créer les templates d'outreach._
 
+
+
+
+
+

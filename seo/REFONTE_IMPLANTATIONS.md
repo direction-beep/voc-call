@@ -99,3 +99,8 @@ La page est maintenant :
 **Statut** : ✅ Refonte complétée  
 **Prochaine étape** : Tester la page et vérifier l'affichage du logo
 
+
+
+
+
+

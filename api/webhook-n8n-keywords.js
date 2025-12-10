@@ -23,8 +23,14 @@ const path = require('path');
 
 // Configuration depuis les variables d'environnement
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || 'your-secret-key-change-this';
-const PROJECT_ROOT = process.env.PROJECT_ROOT || process.cwd();
-const OUTPUT_FILE = path.join(PROJECT_ROOT, 'seo', 'positions-keywords-n8n.md');
+
+// Sur Vercel, on ne peut pas écrire dans le système de fichiers du projet
+// On retourne le contenu pour qu'il soit sauvegardé côté client ou via API
+// Pour l'instant, on utilise /tmp (temporaire) ou on retourne juste le contenu
+const IS_VERCEL = process.env.VERCEL === '1';
+const OUTPUT_FILE = IS_VERCEL 
+  ? path.join('/tmp', 'positions-keywords-n8n.md')
+  : path.join(process.cwd(), 'seo', 'positions-keywords-n8n.md');
 
 /**
  * Sauvegarder le contenu markdown dans le fichier
@@ -118,27 +124,48 @@ export default async function handler(req, res) {
         });
       }
 
-      // Sauvegarder le fichier
-      const result = saveKeywordsFile(markdownContent, withDate || false);
-
-      return res.status(200).json({
-        success: true,
-        message: 'Keywords data received and saved successfully',
-        data: result
-      });
+      // Sur Vercel, on ne peut pas écrire dans le système de fichiers
+      // On retourne le contenu pour qu'il soit sauvegardé côté client
+      try {
+        const result = saveKeywordsFile(markdownContent, withDate || false);
+        return res.status(200).json({
+          success: true,
+          message: 'Keywords data received and saved successfully',
+          data: result,
+          content: markdownContent // Inclure le contenu pour sauvegarde alternative
+        });
+      } catch (fileError) {
+        // Si l'écriture échoue (Vercel), on retourne quand même le contenu
+        return res.status(200).json({
+          success: true,
+          message: 'Keywords data received (file write may have failed on Vercel)',
+          content: markdownContent,
+          warning: 'File system is read-only on Vercel. Use the content field to save locally.'
+        });
+      }
 
     } else if (contentType.includes('text/markdown') || contentType.includes('text/plain')) {
       // Format Markdown direct : le body est directement le markdown
       markdownContent = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
 
-      // Sauvegarder le fichier
-      const result = saveKeywordsFile(markdownContent, false);
-
-      return res.status(200).json({
-        success: true,
-        message: 'Keywords data received and saved successfully',
-        data: result
-      });
+      // Sur Vercel, on ne peut pas écrire dans le système de fichiers
+      try {
+        const result = saveKeywordsFile(markdownContent, false);
+        return res.status(200).json({
+          success: true,
+          message: 'Keywords data received and saved successfully',
+          data: result,
+          content: markdownContent
+        });
+      } catch (fileError) {
+        // Si l'écriture échoue (Vercel), on retourne quand même le contenu
+        return res.status(200).json({
+          success: true,
+          message: 'Keywords data received (file write may have failed on Vercel)',
+          content: markdownContent,
+          warning: 'File system is read-only on Vercel. Use the content field to save locally.'
+        });
+      }
 
     } else {
       return res.status(400).json({ 
@@ -161,4 +188,5 @@ export default async function handler(req, res) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = handler;
 }
+
 

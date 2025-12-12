@@ -1,6 +1,6 @@
 # Positions Mots-Clés VOC-Call - N8N
 
-**Dernière mise à jour** : 2025-12-12T10:28:54.581Z
+**Dernière mise à jour** : 2025-12-12T11:00:34.687Z
 **Source** : N8N Webhook
 
 ---
@@ -8,7 +8,7 @@
 # 📊 Rapport SEO VOC-Call - Analyse Priorité + Ranking
 **Date:** 12/12/2025
 **Période:** 28 derniers jours
-**Total mots-clés suivis:** 438
+**Total mots-clés suivis:** 1
 
 ---
 
@@ -35,7 +35,7 @@
 - **Total** : 0 mots-clés
 
 ### ⚪ Priorité 0 (Non Prioritaire)
-- **Total** : 438 mots-clés
+- **Total** : 1 mots-clés
 
 ---
 

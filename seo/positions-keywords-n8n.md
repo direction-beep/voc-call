@@ -1,11 +1,11 @@
 # Positions Mots-Clés VOC-Call - N8N
 
-**Dernière mise à jour** : 2025-12-12T11:08:56.265Z
+**Dernière mise à jour** : 2025-12-12T11:14:24.599Z
 **Source** : N8N Webhook
 
 ---
 
-# 📊 Rapport SEO VOC-Call
+# 📊 Rapport SEO VOC-Call - Analyse Priorité + Ranking
 **Date:** 12/12/2025
 **Période analysée:** 28 derniers jours
 **Total mots-clés trackés:** 438
@@ -14,83 +14,134 @@
 
 ---
 
-## 🔥 PRIORITÉ 2 - Haute Priorité (12 mots-clés)
+## 🎯 Logique de Priorisation
 
-| Rang | Mot-clé | Position | Volume | Clics | Impressions | CTR % | Statut |
-|------|---------|----------|--------|-------|-------------|-------|--------|
-| 1 | permanence telephonique | 1.5 | 720 | 0 | 23 | 0.00% | ✅ TOP 3 |
-| 2 | call center | 6.5 | 4400 | 0 | 19 | 0.00% | 🟢 Page 1 |
-| 3 | centre d'appel france | 14.0 | 110 | 0 | 1 | 0.00% | 🟡 Top 20 |
-| 4 | france call center | 22.7 | 210 | 0 | 3 | 0.00% | 🔴 À optimiser |
-| 5 | standard externalisé | 53.7 | 260 | 0 | 108 | 0.00% | 🔴 À optimiser |
-| 6 | secrétariat téléphonique | 54.7 | 170 | 0 | 9 | 0.00% | 🔴 À optimiser |
-| 7 | standard externalise | 65.0 | 260 | 0 | 3 | 0.00% | 🔴 À optimiser |
-| 8 | call center france | 74.4 | 210 | 0 | 5 | 0.00% | 🔴 À optimiser |
-| 9 | appels entrants | 75.0 | 1600 | 0 | 1 | 0.00% | 🔴 À optimiser |
-| 10 | externalisation service client | 87.2 | 480 | 0 | 13 | 0.00% | 🔴 À optimiser |
-| 11 | secretariat telephonique | 90.4 | 170 | 0 | 14 | 0.00% | 🔴 À optimiser |
-| 12 | call center français | 100.0 | 20 | 0 | 1 | 0.00% | 🔴 À optimiser |
+- **Priorité 2 (Prioritaire)** + Position 1-3 = ✅ Maintenir (déjà bien positionné)
+- **Priorité 2 (Prioritaire)** + Position > 3 = 🚨 ACTION PRIORITAIRE
+- **Priorité 1 (Moyennement)** = 📈 Optimiser si opportunité
+- **Priorité 0 (Non prioritaire)** = ⏸️ Pas d'action
 
 ---
 
-## 🎯 OPPORTUNITÉS RAPIDES (2 mots-clés Priorité 2)
+## 🚨 ACTIONS PRIORITAIRES - Priorité 2 à Optimiser
 
-**Positions 5-20 = Quick Wins potentiels sur mots-clés prioritaires**
+**11 mots-clés prioritaires** qui ne sont pas dans le TOP 3 :
 
-| Mot-clé | Position | Volume | Impressions | 💡 Action recommandée |
-|---------|----------|--------|-------------|----------------------|
-| call center | 6.5 | 4400 | 19 | 🚀 Push vers Top 3 |
-| centre d'appel france | 14.0 | 110 | 1 | ⚡ Optimiser contenu |
-
----
-
-## ⚠️ ALERTES (8 mots-clés)
-
-**Mots-clés Priorité 2 mal positionnés (>50)**
-
-| Mot-clé | Position | Volume | Action requise |
-|---------|----------|--------|----------------|
-| standard externalisé | 53.7 | 260 | Créer/optimiser contenu |
-| secrétariat téléphonique | 54.7 | 170 | Créer/optimiser contenu |
-| standard externalise | 65.0 | 260 | Créer/optimiser contenu |
-| call center france | 74.4 | 210 | Créer/optimiser contenu |
-| appels entrants | 75.0 | 1600 | Créer/optimiser contenu |
-| externalisation service client | 87.2 | 480 | Créer/optimiser contenu |
-| secretariat telephonique | 90.4 | 170 | Créer/optimiser contenu |
-| call center français | 100.0 | 20 | Créer/optimiser contenu |
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut | 💡 Action SEO |
+|---------|----------|--------|-------|-------------|-------|-----------|---------------|
+| france call center | 22.666666666666668 | 210 | 0 | 3 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| standard externalisé | 53.675925925925924 | 260 | 0 | 108 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| secrétariat téléphonique | 54.666666666666664 | 170 | 0 | 9 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| standard externalise | 65 | 260 | 0 | 3 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| call center france | 74.4 | 210 | 0 | 5 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| appels entrants | 75 | 1600 | 0 | 1 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| externalisation service client | 87.23076923076923 | 480 | 0 | 13 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| secretariat telephonique | 90.42857142857143 | 170 | 0 | 14 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| call center français | 100 | 20 | 0 | 1 | 0.00% | 🟠 Top 100 | 🔧 Créer/Optimiser contenu |
+| call center | 6.526315789473684 | 4400 | 0 | 19 | 0.00% | 🟢 Page 1 | 🚀 Pousser vers TOP 3 |
+| centre d'appel france | 14 | 110 | 0 | 1 | 0.00% | 🟡 Top 20 | ⚡ Optimiser pour Top 10 |
 
 ---
 
-## 🟡 PRIORITÉ 1 - Secondaire (11 mots-clés)
+## 🚀 Priorité 2 - Pousser vers TOP 3 (Positions 4-10)
 
-**Top 15 meilleures positions**
+**1 mots-clés prioritaires** proches du TOP 3 :
 
-| Rang | Mot-clé | Position | Volume | Clics | Impressions | CTR % |
-|------|---------|----------|--------|-------|-------------|-------|
-| 1 | teleconseiller a domicile | 5.5 | 210 | 20 | 447 | 4.47% |
-| 2 | teleconseiller à domicile | 6.0 | 210 | 2 | 25 | 8.00% |
-| 3 | téléconseiller a domicile | 7.5 | 210 | 3 | 58 | 5.17% |
-| 4 | téléconseiller à domicile | 7.8 | 210 | 2 | 85 | 2.35% |
-| 5 | devenir téléconseiller | 10.8 | 90 | 0 | 45 | 0.00% |
-| 6 | devenir teleconseiller | 18.4 | 90 | 0 | 16 | 0.00% |
-| 7 | teleoperateur | 20.0 | 480 | 0 | 2 | 0.00% |
-| 8 | homeshoring | 25.7 | 210 | 3 | 16 | 18.75% |
-| 9 | teleconseiller | 28.6 | 4400 | 0 | 25 | 0.00% |
-| 10 | téléconseiller | 31.4 | 4400 | 0 | 32 | 0.00% |
-| 11 | téléopérateur | 67.8 | 480 | 0 | 12 | 0.00% |
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut |
+|---------|----------|--------|-------|-------------|-------|-----------|
+| call center | 6.526315789473684 | 4400 | 0 | 19 | 0.00% | 🟢 Page 1 |
 
 ---
 
-## 💡 QUESTIONS POUR CLAUDE (Cursor)
+## ⚡ Priorité 2 - Optimiser pour Top 10 (Positions 11-20)
 
-### Analyse stratégique - Priorité 2 :
-1. **Opportunités rapides** : Parmi les 2 mots-clés Priorité 2 en positions 5-20, lesquels prioriser pour un ROI maximal ?
-2. **Alertes critiques** : Pour les 8 mots-clés Priorité 2 mal positionnés, quelle stratégie adopter ?
-3. **Création de contenu** : Quels nouveaux articles/pages créer pour capturer ces mots-clés prioritaires ?
-4. **Optimisation on-page** : Quelles modifications apporter aux pages existantes (title, meta, H1, structure) ?
+**1 mots-clés prioritaires** proches du Top 10 :
 
-### Plan d'action 4 semaines :
-Établis un plan d'action concret et priorisé sur 4 semaines pour améliorer le référencement de VOC-Call sur les mots-clés Priorité 2.
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut |
+|---------|----------|--------|-------|-------------|-------|-----------|
+| centre d'appel france | 14 | 110 | 0 | 1 | 0.00% | 🟡 Top 20 |
 
-### Analyse business :
-Calcule le potentiel de trafic supplémentaire si on améliore de 5 positions les opportunités quick-wins identifiées.
+---
+
+## 🔧 Priorité 2 - Créer/Optimiser Contenu (Position > 20)
+
+**9 mots-clés prioritaires** nécessitant une création/optimisation de contenu :
+
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut |
+|---------|----------|--------|-------|-------------|-------|-----------|
+| france call center | 22.666666666666668 | 210 | 0 | 3 | 0.00% | 🟠 Top 100 |
+| standard externalisé | 53.675925925925924 | 260 | 0 | 108 | 0.00% | 🟠 Top 100 |
+| secrétariat téléphonique | 54.666666666666664 | 170 | 0 | 9 | 0.00% | 🟠 Top 100 |
+| standard externalise | 65 | 260 | 0 | 3 | 0.00% | 🟠 Top 100 |
+| call center france | 74.4 | 210 | 0 | 5 | 0.00% | 🟠 Top 100 |
+| appels entrants | 75 | 1600 | 0 | 1 | 0.00% | 🟠 Top 100 |
+| externalisation service client | 87.23076923076923 | 480 | 0 | 13 | 0.00% | 🟠 Top 100 |
+| secretariat telephonique | 90.42857142857143 | 170 | 0 | 14 | 0.00% | 🟠 Top 100 |
+| call center français | 100 | 20 | 0 | 1 | 0.00% | 🟠 Top 100 |
+
+---
+
+## ✅ Priorité 2 - À Maintenir (TOP 3)
+
+**1 mots-clés prioritaires** déjà bien positionnés (TOP 3) :
+
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut |
+|---------|----------|--------|-------|-------------|-------|-----------|
+| permanence telephonique | 1.4782608695652173 | 720 | 0 | 23 | 0.00% | ✅ TOP 3 |
+
+---
+
+## 📈 Priorité 1 - Opportunités (Moyennement Prioritaire)
+
+**7 mots-clés** moyennement prioritaires à optimiser si opportunité :
+
+| Mot-clé | Position | Volume | Clics | Impressions | CTR % | 📊 Statut |
+|---------|----------|--------|-------|-------------|-------|-----------|
+| teleconseiller a domicile | 5.54586129753915 | 210 | 20 | 447 | 4.47% | 🟢 Page 1 |
+| teleconseiller à domicile | 5.96 | 210 | 2 | 25 | 8.00% | 🟢 Page 1 |
+| téléconseiller a domicile | 7.517241379310345 | 210 | 3 | 58 | 5.17% | 🟢 Page 1 |
+| téléconseiller à domicile | 7.823529411764706 | 210 | 2 | 85 | 2.35% | 🟢 Page 1 |
+| devenir téléconseiller | 10.822222222222223 | 90 | 0 | 45 | 0.00% | 🟡 Top 20 |
+| devenir teleconseiller | 18.375 | 90 | 0 | 16 | 0.00% | 🟡 Top 20 |
+| teleoperateur | 20 | 480 | 0 | 2 | 0.00% | 🟡 Top 20 |
+
+---
+
+## 📊 Statistiques par Priorité
+
+### 🔴 Priorité 2 (Prioritaire)
+- **Total** : 12 mots-clés
+- **TOP 3** : 1 (8.3%) ✅
+- **TOP 10** : 2 (16.7%)
+- **TOP 20** : 3 (25.0%)
+- **Non classés** : 0 (0.0%)
+- **🚨 À optimiser** : 11 (91.7%)
+
+### 🟡 Priorité 1 (Moyennement Prioritaire)
+- **Total** : 11 mots-clés
+
+### ⚪ Priorité 0 (Non Prioritaire)
+- **Total** : 415 mots-clés
+
+---
+
+## 🎯 Plan d'Action Recommandé
+
+### Semaine 1-2 : Actions Critiques
+- Optimiser les **11 mots-clés prioritaires** non dans le TOP 3
+- Créer du contenu pour **9 mots-clés prioritaires** non classés
+
+### Semaine 3-4 : Optimisations
+- Pousser **1 mots-clés** vers le TOP 3
+- Optimiser **1 mots-clés** pour entrer dans le Top 10
+
+---
+
+## 💡 Questions pour Claude/Cursor:
+
+1. Pour les **11 mots-clés prioritaires** à optimiser : quelle stratégie d'optimisation on-page recommandes-tu ?
+2. Pour les **9 mots-clés prioritaires** non classés : faut-il créer des pages dédiées ou optimiser des pages existantes ?
+3. Comment maintenir les **1 mots-clés prioritaires** en TOP 3 et éviter la régression ?
+4. Quel devrait être le planning d'optimisation sur les 4 prochaines semaines (priorisation) ?
+5. Stratégie de création de contenu : quels articles de blog créer pour capturer les mots-clés prioritaires non classés ?
+

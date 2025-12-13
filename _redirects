@@ -12,6 +12,8 @@ https://www.voc-call.fr/* https://voc-call.fr/:splat 301!
 /service-client /services/service-client.html 301!
 /standard-externalise /services/standard-externalise.html 301!
 /telesecretariat /services/telesecretariat.html 301!
+/externalisation-service-client /services/externalisation-service-client.html 301!
+/secretariat-telephonique /services/secretariat-telephonique.html 301!
 
 # Redirections guides PDFs
 /guides/calculateur-roi-service-client.csv /resources/guides/calculateur-roi-service-client.csv 301!

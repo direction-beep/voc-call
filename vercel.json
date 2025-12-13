@@ -171,6 +171,16 @@
       "statusCode": 301
     },
     {
+      "source": "/externalisation-service-client",
+      "destination": "/services/externalisation-service-client.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/secretariat-telephonique",
+      "destination": "/services/secretariat-telephonique.html",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/calculateur-roi-service-client.csv",
       "destination": "/resources/guides/calculateur-roi-service-client.csv",
       "statusCode": 301

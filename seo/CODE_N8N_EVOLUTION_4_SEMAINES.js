@@ -464,12 +464,46 @@ function getStatus(position) {
 // ========================================
 
 // Extraire les colonnes de dates dynamiquement
-const allRows = evolutionData.map(item => item.json);
+const allRows = evolutionData.map(item => {
+  // Gérer différents formats de données
+  if (typeof item === 'object' && item.json) {
+    return item.json;
+  }
+  return item;
+}).filter(row => {
+  // Filtrer les métadonnées et garder uniquement les vraies données
+  if (!row || typeof row !== 'object') return false;
+  
+  // Ignorer les objets qui sont clairement des métadonnées
+  if (row.success !== undefined && row.column !== undefined && row.rowsUpdated !== undefined) {
+    return false;
+  }
+  
+  // Garder les objets qui ont au moins une des colonnes attendues
+  return row['Mot-clé'] !== undefined || 
+         row['Mot-cle'] !== undefined || 
+         row.keyword !== undefined ||
+         row['Priorité'] !== undefined ||
+         row.Priorité !== undefined ||
+         row.priority !== undefined ||
+         Object.keys(row).some(key => /^\d{4}-\d{2}-\d{2}$/.test(key));
+});
+
 if (allRows.length === 0) {
+  // Debug : afficher ce qui a été reçu
+  const sampleItems = allInputs.slice(0, 3).map(item => {
+    return item.json || item;
+  });
+  
+  const debugInfo = `Items reçus: ${allInputs.length}\n` +
+    `Items filtrés: ${evolutionData.length}\n` +
+    `Exemples d'items:\n${JSON.stringify(sampleItems, null, 2)}`;
+  
   return [{
     json: {
       error: "Aucune donnée trouvée dans l'onglet 'évolution'",
-      markdown: "# ❌ Erreur\n\nAucune donnée trouvée dans l'onglet 'évolution' du Google Sheet."
+      markdown: `# ❌ Erreur\n\nAucune donnée trouvée dans l'onglet 'évolution' du Google Sheet.\n\n**Debug Info:**\n\`\`\`json\n${debugInfo}\n\`\`\``,
+      debug: debugInfo
     }
   }];
 }

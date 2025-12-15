@@ -433,8 +433,15 @@ if (allRows.length === 0) {
 
 const firstRow = allRows[0] || {};
 
+// Debug : Afficher toutes les clés disponibles pour diagnostic
+const allKeys = Object.keys(firstRow);
+const debugInfo = `Clés disponibles: ${allKeys.join(', ')}`;
+
 // Identifier les colonnes de dates (format YYYY-MM-DD)
+// N8N peut utiliser différents formats de noms de colonnes
 const dateColumns = [];
+
+// Méthode 1 : Chercher directement les dates en format YYYY-MM-DD
 Object.keys(firstRow).forEach(key => {
   // Vérifier si la clé ressemble à une date (YYYY-MM-DD)
   if (/^\d{4}-\d{2}-\d{2}$/.test(key)) {
@@ -442,8 +449,75 @@ Object.keys(firstRow).forEach(key => {
   }
 });
 
-// Trier les dates chronologiquement
-dateColumns.sort();
+// Méthode 2 : Si aucune date trouvée, chercher dans les valeurs (cas où N8N utilise des noms de colonnes comme "E", "F", "G")
+if (dateColumns.length === 0) {
+  // Chercher toutes les colonnes qui contiennent des dates en format YYYY-MM-DD dans leurs valeurs
+  Object.keys(firstRow).forEach(key => {
+    // Ignorer les colonnes connues (Priorité, Mot-clé)
+    if (key.toLowerCase() === 'priorité' || key.toLowerCase() === 'priorite' || 
+        key.toLowerCase() === 'mot-clé' || key.toLowerCase() === 'mot-cle' || 
+        key.toLowerCase() === 'keyword' || key.toLowerCase() === 'priority') {
+      return;
+    }
+    
+    // Vérifier si la valeur de cette colonne ressemble à une date
+    const value = String(firstRow[key] || '');
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+      dateColumns.push(key);
+    }
+  });
+}
+
+// Méthode 3 : Si toujours rien, chercher par pattern dans les noms de colonnes
+if (dateColumns.length === 0) {
+  // Chercher des colonnes qui pourraient être des dates (format varié)
+  Object.keys(firstRow).forEach(key => {
+    // Ignorer les colonnes connues
+    if (key.toLowerCase() === 'priorité' || key.toLowerCase() === 'priorite' || 
+        key.toLowerCase() === 'mot-clé' || key.toLowerCase() === 'mot-cle' || 
+        key.toLowerCase() === 'keyword' || key.toLowerCase() === 'priority') {
+      return;
+    }
+    
+    // Chercher des patterns de date dans le nom de la colonne
+    if (/\d{4}[\s\-_]\d{2}[\s\-_]\d{2}/.test(key) || 
+        /\d{4}\/\d{2}\/\d{2}/.test(key) ||
+        /^\d{4}-\d{2}-\d{2}/.test(key)) {
+      dateColumns.push(key);
+    }
+  });
+}
+
+// Méthode 4 : Si toujours rien, utiliser toutes les colonnes sauf Priorité et Mot-clé
+// et supposer qu'elles sont dans l'ordre chronologique
+if (dateColumns.length === 0) {
+  Object.keys(firstRow).forEach(key => {
+    // Ignorer les colonnes connues
+    if (key.toLowerCase() === 'priorité' || key.toLowerCase() === 'priorite' || 
+        key.toLowerCase() === 'mot-clé' || key.toLowerCase() === 'mot-cle' || 
+        key.toLowerCase() === 'keyword' || key.toLowerCase() === 'priority' ||
+        key === 'A' || key === 'B' || key === 'C' || key === 'D') {
+      return;
+    }
+    
+    // Ajouter toutes les autres colonnes (probablement les dates)
+    dateColumns.push(key);
+  });
+}
+
+// Trier les dates chronologiquement (si ce sont des dates)
+dateColumns.sort((a, b) => {
+  // Essayer de parser comme date
+  const dateA = a.match(/^\d{4}-\d{2}-\d{2}/);
+  const dateB = b.match(/^\d{4}-\d{2}-\d{2}/);
+  
+  if (dateA && dateB) {
+    return dateA[0].localeCompare(dateB[0]);
+  }
+  
+  // Sinon, tri alphabétique
+  return a.localeCompare(b);
+});
 
 // Prendre les 4 dernières semaines (4 dernières dates)
 const last4Weeks = dateColumns.slice(-4);
@@ -452,15 +526,22 @@ if (last4Weeks.length === 0) {
   return [{
     json: {
       error: "Aucune colonne de date trouvée",
-      markdown: "# ❌ Erreur\n\nAucune colonne de date (format YYYY-MM-DD) trouvée dans l'onglet 'évolution'."
+      markdown: `# ❌ Erreur\n\nAucune colonne de date (format YYYY-MM-DD) trouvée dans l'onglet 'évolution'.\n\n**Debug Info:**\n${debugInfo}\n\n**Première ligne reçue:**\n\`\`\`json\n${JSON.stringify(firstRow, null, 2)}\n\`\`\``
     }
   }];
 }
 
 // Traiter chaque mot-clé
 const keywordsWithEvolution = allRows.map(row => {
-  const keyword = row['Mot-clé'] || row['Mot-clé'] || row.keyword || '';
-  const priorityFromSheet = parseInt(row['Priorité'] || row.Priorité || row.priority || 0);
+  // Gérer différents formats de noms de colonnes pour "Mot-clé"
+  const keyword = row['Mot-clé'] || row['Mot-cle'] || row['Mot-clé'] || 
+                  row.keyword || row['Keyword'] || row['B'] || '';
+  
+  // Gérer différents formats de noms de colonnes pour "Priorité"
+  const priorityFromSheet = parseInt(
+    row['Priorité'] || row['Priorite'] || row.Priorité || 
+    row.priority || row['Priority'] || row['A'] || 0
+  );
   
   // Récupérer la priorité depuis le map (si disponible)
   const normalizedKeyword = normalize(keyword);
@@ -469,7 +550,10 @@ const keywordsWithEvolution = allRows.map(row => {
   const volume = priorityData.volume || 0;
   
   // Extraire les positions pour les 4 dernières semaines
-  const positions = last4Weeks.map(date => parsePosition(row[date]));
+  const positions = last4Weeks.map(date => {
+    // Essayer plusieurs formats de clés
+    return parsePosition(row[date] || row[date.toLowerCase()] || row[date.toUpperCase()]);
+  });
   
   // Calculer la tendance
   const trend = calculateTrend(positions);

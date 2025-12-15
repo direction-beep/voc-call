@@ -248,11 +248,8 @@ priorityKeywords.forEach(pk => {
 // RÉCUPÉRATION DES DONNÉES DE L'ONGLET "ÉVOLUTION"
 // ========================================
 
-// Les données viennent du nœud "Get row(s) in sheet" configuré pour l'onglet "évolution"
-// N8N peut retourner les données de différentes façons selon la configuration
-let evolutionData = [];
-
-// Méthode 1 : Si les données sont directement dans $input.all()
+// Les données viennent du nœud configuré pour l'onglet "évolution"
+// N8N peut retourner les données dans différents formats
 const allInputs = $input.all();
 
 // Vérifier si on reçoit seulement des métadonnées (problème de configuration)
@@ -261,55 +258,143 @@ const hasOnlyMetadata = allInputs.length === 1 &&
   allInputs[0]?.json?.rowsUpdated !== undefined;
 
 if (hasOnlyMetadata) {
-  // Le nœud "Get row(s) in sheet" n'est pas configuré correctement
-  // Il retourne les métadonnées au lieu des données
   const metadata = allInputs[0].json;
   return [{
     json: {
-      error: "Configuration incorrecte du nœud 'Get row(s) in sheet'",
-      markdown: `# ❌ Erreur de Configuration\n\nLe nœud "Get row(s) in sheet" retourne des métadonnées au lieu des données.\n\n**Métadonnées reçues:**\n\`\`\`json\n${JSON.stringify(metadata, null, 2)}\n\`\`\`\n\n**Solution:**\n\n1. **Utilisez "Read Rows" au lieu de "Get row(s)"**\n   - Nœud : Google Sheets → "Read Rows"\n   - Sheet Tab/Name : \`évolution\`\n   - Options → Use First Row as Headers : ✅ Activé\n   - Range : Laissez vide\n\n2. **OU corrigez "Get row(s) in sheet"**\n   - Options → Use First Row as Headers : ✅ Activé\n   - Options → Return All : ✅ Activé\n   - Range : Laissez vide\n\n**Voir le guide:** \`seo/CORRECTION_GET_ROWS_SHEET_N8N.md\``,
+      error: "Configuration incorrecte du nœud",
+      markdown: `# ❌ Erreur de Configuration\n\nLe nœud retourne des métadonnées au lieu des données.\n\n**Métadonnées reçues:**\n\`\`\`json\n${JSON.stringify(metadata, null, 2)}\n\`\`\`\n\n**Solution:** Voir \`seo/CORRECTION_GET_ROWS_SHEET_N8N.md\``,
       metadata: metadata
     }
   }];
 }
 
-// Vérifier si les données sont dans le format standard N8N
-if (allInputs && allInputs.length > 0) {
-  // Filtrer les items qui contiennent les données (pas les métadonnées)
-  evolutionData = allInputs.filter(item => {
-    const json = item.json || {};
-    // Ignorer les items qui sont des métadonnées (success, column, rowsUpdated)
-    if (json.success !== undefined && json.column !== undefined && json.rowsUpdated !== undefined) {
-      return false;
-    }
-    // Inclure les items qui ont "Mot-clé" ou "Priorité" ou des colonnes de dates
-    return json['Mot-clé'] !== undefined || 
-           json['Mot-cle'] !== undefined || 
-           json.keyword !== undefined ||
-           json['Priorité'] !== undefined ||
-           json.Priorité !== undefined ||
-           Object.keys(json).some(key => /^\d{4}-\d{2}-\d{2}$/.test(key));
-  });
-}
+// ========================================
+// DÉTECTION DU FORMAT DES DONNÉES
+// ========================================
 
-// Si aucune donnée trouvée, essayer d'accéder directement aux données
-if (evolutionData.length === 0 && allInputs.length > 0) {
-  // Peut-être que les données sont dans un format différent
-  // Essayer de récupérer depuis le premier item qui a des données
-  const firstItem = allInputs.find(item => {
-    const json = item.json || {};
-    return json['Mot-clé'] || json.keyword || json['Priorité'];
+// Format 1 : Tableau updateData (format actuel)
+// Structure : { updateData: [{ row, keyword, position, date }, ...] }
+let updateDataArray = [];
+
+// Chercher updateData dans les inputs
+allInputs.forEach(item => {
+  const json = item.json || {};
+  if (json.updateData && Array.isArray(json.updateData)) {
+    updateDataArray = updateDataArray.concat(json.updateData);
+  } else if (Array.isArray(json)) {
+    // Peut-être que les données sont directement dans un tableau
+    updateDataArray = updateDataArray.concat(json);
+  }
+});
+
+// Si on a trouvé updateData, utiliser ce format
+if (updateDataArray.length > 0) {
+  // Grouper les données par mot-clé et date
+  const dataByKeyword = {};
+  
+  updateDataArray.forEach(item => {
+    const keyword = item.keyword || item['Mot-clé'] || item['Mot-cle'] || '';
+    const date = item.date || '';
+    const position = item.position;
+    const priority = item.priority || item['Priorité'] || item.Priorité || 0;
+    
+    if (!keyword) return;
+    
+    if (!dataByKeyword[keyword]) {
+      dataByKeyword[keyword] = {
+        keyword: keyword,
+        priority: priority,
+        positionsByDate: {}
+      };
+    }
+    
+    if (date && position !== undefined && position !== null && position !== 'N/A') {
+      dataByKeyword[keyword].positionsByDate[date] = position;
+    }
   });
   
-  if (firstItem) {
-    evolutionData = allInputs;
-  } else {
-    // Si toujours rien, utiliser tous les items sauf les métadonnées
+  // Convertir en format attendu par le reste du code
+  const dateColumns = [];
+  const allDates = new Set();
+  
+  Object.values(dataByKeyword).forEach(kw => {
+    Object.keys(kw.positionsByDate).forEach(date => allDates.add(date));
+  });
+  
+  dateColumns.push(...Array.from(allDates).sort());
+  
+  // Prendre les 4 dernières semaines
+  const last4Weeks = dateColumns.slice(-4);
+  
+  // Convertir en format de lignes (comme si c'était des lignes du sheet)
+  const allRows = Object.values(dataByKeyword).map(kw => {
+    const row = {
+      'Mot-clé': kw.keyword,
+      'Priorité': kw.priority
+    };
+    
+    // Ajouter les positions par date
+    last4Weeks.forEach(date => {
+      row[date] = kw.positionsByDate[date] || null;
+    });
+    
+    return row;
+  });
+  
+  // Continuer avec le traitement normal
+  const firstRow = allRows[0] || {};
+  
+  if (allRows.length === 0) {
+    return [{
+      json: {
+        error: "Aucune donnée trouvée",
+        markdown: `# ❌ Erreur\n\nAucune donnée trouvée après traitement du format updateData.\n\n**Debug:** ${updateDataArray.length} items dans updateData`,
+        debug: `updateData items: ${updateDataArray.length}`
+      }
+    }];
+  }
+  
+  // Utiliser allRows et last4Weeks qui ont été créés ci-dessus
+  // On va sauter directement au traitement des mots-clés
+  
+} else {
+  // Format 2 : Format standard (lignes avec colonnes de dates)
+  // Code existant pour gérer ce format
+  let evolutionData = [];
+  
+  if (allInputs && allInputs.length > 0) {
     evolutionData = allInputs.filter(item => {
       const json = item.json || {};
-      return !(json.success !== undefined && json.column !== undefined);
+      if (json.success !== undefined && json.column !== undefined && json.rowsUpdated !== undefined) {
+        return false;
+      }
+      return json['Mot-clé'] !== undefined || 
+             json['Mot-cle'] !== undefined || 
+             json.keyword !== undefined ||
+             json['Priorité'] !== undefined ||
+             json.Priorité !== undefined ||
+             Object.keys(json).some(key => /^\d{4}-\d{2}-\d{2}$/.test(key));
     });
   }
+  
+  if (evolutionData.length === 0 && allInputs.length > 0) {
+    const firstItem = allInputs.find(item => {
+      const json = item.json || {};
+      return json['Mot-clé'] || json.keyword || json['Priorité'];
+    });
+    
+    if (firstItem) {
+      evolutionData = allInputs;
+    } else {
+      evolutionData = allInputs.filter(item => {
+        const json = item.json || {};
+        return !(json.success !== undefined && json.column !== undefined);
+      });
+    }
+  }
+  
+  // Continuer avec le code existant...
+  // (le reste du code reste inchangé pour ce format)
 }
 
 // ========================================

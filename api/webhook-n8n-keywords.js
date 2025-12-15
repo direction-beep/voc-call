@@ -208,8 +208,8 @@ export default async function handler(req, res) {
 
     // Gérer deux formats : JSON ou Markdown direct
     if (contentType.includes('application/json')) {
-      // Format JSON : { "content": "...", "format": "markdown", "withDate": false }
-      const { content, format, withDate } = req.body;
+      // Format JSON : { "content": "...", "format": "markdown", "filename": "...", "withDate": false }
+      const { content, format, filename, withDate } = req.body;
 
       if (!content) {
         return res.status(400).json({ 
@@ -230,6 +230,10 @@ export default async function handler(req, res) {
       // Sur Vercel, on ne peut pas écrire dans le système de fichiers
       // On commit directement sur GitHub via l'API
       try {
+        // Récupérer le filename depuis le payload (si fourni)
+        const filename = req.body.filename || 'positions-keywords-n8n.md';
+        const filePath = filename.startsWith('seo/') ? filename : `seo/${filename}`;
+        
         // Ajouter un en-tête avec la date de mise à jour
         const header = `# Positions Mots-Clés VOC-Call - N8N
 
@@ -243,9 +247,9 @@ export default async function handler(req, res) {
         
         // Commit sur GitHub
         const githubResult = await commitFileToGitHub(
-          'seo/positions-keywords-n8n.md',
+          filePath,
           fullContent,
-          `Update SEO keywords positions from N8N - ${new Date().toISOString().split('T')[0]}`
+          `Update SEO report: ${filename} - ${new Date().toISOString().split('T')[0]}`
         );
 
         return res.status(200).json({
@@ -269,10 +273,15 @@ export default async function handler(req, res) {
     } else if (contentType.includes('text/markdown') || contentType.includes('text/plain')) {
       // Format Markdown direct : le body est directement le markdown
       markdownContent = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
+      
+      // Essayer de récupérer le filename depuis les query params ou headers
+      const filename = req.query.filename || req.headers['x-filename'] || 'positions-keywords-n8n.md';
 
       // Sur Vercel, on ne peut pas écrire dans le système de fichiers
       // On commit directement sur GitHub via l'API
       try {
+        const filePath = filename.startsWith('seo/') ? filename : `seo/${filename}`;
+        
         // Ajouter un en-tête avec la date de mise à jour
         const header = `# Positions Mots-Clés VOC-Call - N8N
 
@@ -286,9 +295,9 @@ export default async function handler(req, res) {
         
         // Commit sur GitHub
         const githubResult = await commitFileToGitHub(
-          'seo/positions-keywords-n8n.md',
+          filePath,
           fullContent,
-          `Update SEO keywords positions from N8N - ${new Date().toISOString().split('T')[0]}`
+          `Update SEO report: ${filename} - ${new Date().toISOString().split('T')[0]}`
         );
 
         return res.status(200).json({

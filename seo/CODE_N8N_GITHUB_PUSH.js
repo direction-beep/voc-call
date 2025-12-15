@@ -24,7 +24,7 @@ const filename = inputData.filename || 'seo-report.md';
 const webhookPayload = {
   content: markdown,
   format: "markdown",
-  filename: filename,
+  filename: filename, // Le filename sera utilisé par le webhook
   metadata: {
     keywordsAnalyzed: inputData.keywordsAnalyzed || 0,
     criticalRegressions: inputData.criticalRegressions || 0,

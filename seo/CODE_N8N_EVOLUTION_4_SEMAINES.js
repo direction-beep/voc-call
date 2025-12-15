@@ -255,13 +255,31 @@ let evolutionData = [];
 // Méthode 1 : Si les données sont directement dans $input.all()
 const allInputs = $input.all();
 
+// Vérifier si on reçoit seulement des métadonnées (problème de configuration)
+const hasOnlyMetadata = allInputs.length === 1 && 
+  allInputs[0]?.json?.success !== undefined && 
+  allInputs[0]?.json?.rowsUpdated !== undefined;
+
+if (hasOnlyMetadata) {
+  // Le nœud "Get row(s) in sheet" n'est pas configuré correctement
+  // Il retourne les métadonnées au lieu des données
+  const metadata = allInputs[0].json;
+  return [{
+    json: {
+      error: "Configuration incorrecte du nœud 'Get row(s) in sheet'",
+      markdown: `# ❌ Erreur de Configuration\n\nLe nœud "Get row(s) in sheet" retourne des métadonnées au lieu des données.\n\n**Métadonnées reçues:**\n\`\`\`json\n${JSON.stringify(metadata, null, 2)}\n\`\`\`\n\n**Solution:**\n\n1. **Utilisez "Read Rows" au lieu de "Get row(s)"**\n   - Nœud : Google Sheets → "Read Rows"\n   - Sheet Tab/Name : \`évolution\`\n   - Options → Use First Row as Headers : ✅ Activé\n   - Range : Laissez vide\n\n2. **OU corrigez "Get row(s) in sheet"**\n   - Options → Use First Row as Headers : ✅ Activé\n   - Options → Return All : ✅ Activé\n   - Range : Laissez vide\n\n**Voir le guide:** \`seo/CORRECTION_GET_ROWS_SHEET_N8N.md\``,
+      metadata: metadata
+    }
+  }];
+}
+
 // Vérifier si les données sont dans le format standard N8N
 if (allInputs && allInputs.length > 0) {
   // Filtrer les items qui contiennent les données (pas les métadonnées)
   evolutionData = allInputs.filter(item => {
     const json = item.json || {};
     // Ignorer les items qui sont des métadonnées (success, column, rowsUpdated)
-    if (json.success !== undefined || json.column !== undefined || json.rowsUpdated !== undefined) {
+    if (json.success !== undefined && json.column !== undefined && json.rowsUpdated !== undefined) {
       return false;
     }
     // Inclure les items qui ont "Mot-clé" ou "Priorité" ou des colonnes de dates

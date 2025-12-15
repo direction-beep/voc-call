@@ -34,6 +34,10 @@ const webhookPayload = {
   }
 };
 
+// Préparer le payload JSON stringifié pour l'HTTP Request
+// Cela évite les problèmes d'échappement dans N8N
+const webhookPayloadString = JSON.stringify(webhookPayload);
+
 // Option 2 : Envoyer directement via GitHub API (si vous avez un token)
 // Cette option nécessite un GitHub Personal Access Token avec les permissions repo
 const githubApiPayload = {
@@ -54,7 +58,8 @@ return [{
         'Content-Type': 'application/json',
         'X-Webhook-Secret': '{{ $env.WEBHOOK_SECRET }}' // À configurer dans N8N
       },
-      body: webhookPayload
+      body: webhookPayload,
+      bodyString: webhookPayloadString // JSON stringifié pour éviter les problèmes d'échappement
     },
     // Option 2 : GitHub API directe (si vous préférez)
     githubApi: {

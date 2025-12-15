@@ -249,7 +249,50 @@ priorityKeywords.forEach(pk => {
 // ========================================
 
 // Les données viennent du nœud "Get row(s) in sheet" configuré pour l'onglet "évolution"
-const evolutionData = $input.all();
+// N8N peut retourner les données de différentes façons selon la configuration
+let evolutionData = [];
+
+// Méthode 1 : Si les données sont directement dans $input.all()
+const allInputs = $input.all();
+
+// Vérifier si les données sont dans le format standard N8N
+if (allInputs && allInputs.length > 0) {
+  // Filtrer les items qui contiennent les données (pas les métadonnées)
+  evolutionData = allInputs.filter(item => {
+    const json = item.json || {};
+    // Ignorer les items qui sont des métadonnées (success, column, rowsUpdated)
+    if (json.success !== undefined || json.column !== undefined || json.rowsUpdated !== undefined) {
+      return false;
+    }
+    // Inclure les items qui ont "Mot-clé" ou "Priorité" ou des colonnes de dates
+    return json['Mot-clé'] !== undefined || 
+           json['Mot-cle'] !== undefined || 
+           json.keyword !== undefined ||
+           json['Priorité'] !== undefined ||
+           json.Priorité !== undefined ||
+           Object.keys(json).some(key => /^\d{4}-\d{2}-\d{2}$/.test(key));
+  });
+}
+
+// Si aucune donnée trouvée, essayer d'accéder directement aux données
+if (evolutionData.length === 0 && allInputs.length > 0) {
+  // Peut-être que les données sont dans un format différent
+  // Essayer de récupérer depuis le premier item qui a des données
+  const firstItem = allInputs.find(item => {
+    const json = item.json || {};
+    return json['Mot-clé'] || json.keyword || json['Priorité'];
+  });
+  
+  if (firstItem) {
+    evolutionData = allInputs;
+  } else {
+    // Si toujours rien, utiliser tous les items sauf les métadonnées
+    evolutionData = allInputs.filter(item => {
+      const json = item.json || {};
+      return !(json.success !== undefined && json.column !== undefined);
+    });
+  }
+}
 
 // ========================================
 // FONCTIONS UTILITAIRES

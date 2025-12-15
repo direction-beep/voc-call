@@ -1,23 +1,38 @@
 # Positions Mots-Clés VOC-Call - N8N
 
-**Dernière mise à jour** : 2025-12-15T08:00:38.626Z
+**Dernière mise à jour** : 2025-12-15T15:22:12.867Z
 **Source** : N8N Webhook
 
 ---
 
-# 📊 Rapport SEO VOC-Call - Analyse Priorité + Ranking
-**Date:** 15/12/2025
-**Période:** 28 derniers jours
-**Total mots-clés suivis:** 1
+# 📈 Rapport Évolution Positions SEO - VOC-Call (4 Semaines)
+**Date d'analyse** : 2025-12-15
+**Source** : Google Sheet - Onglet "évolution"
+**Période analysée** : column → success
+**Total mots-clés analysés** : 0
 
 ---
 
-## 🎯 Logique de Priorisation
+## 🎯 Vue d'Ensemble
 
-- **Priorité 2 (Prioritaire)** + Position 1-3 = ✅ Maintenir (déjà bien positionné)
-- **Priorité 2 (Prioritaire)** + Position > 3 = 🚨 ACTION PRIORITAIRE
-- **Priorité 1 (Moyennement)** = 📈 Optimiser si opportunité
-- **Priorité 0 (Non prioritaire)** = ⏸️ Pas d'action
+### Statistiques Globales
+- **Mots-clés en amélioration** : 0 📈
+- **Mots-clés stables** : 0 ➡️
+- **Mots-clés en régression** : 0 📉
+- **Régressions critiques (Priorité 2)** : 0 🚨
+
+---
+
+## 🚨 ACTIONS URGENTES - Régressions Critiques
+
+✅ Aucune régression critique détectée.
+
+---
+
+## 📊 Détails par Mot-Clé (4 Dernières Semaines)
+
+| Mot-clé | Priorité | Positions (column → rowsUpdated → success) | Variation | Tendance | Action SEO |
+|---------|----------|---|---|---|-----------|----------|------------|
 
 ---
 
@@ -35,27 +50,17 @@
 - **Total** : 0 mots-clés
 
 ### ⚪ Priorité 0 (Non Prioritaire)
-- **Total** : 1 mots-clés
-
----
+- **Total** : 0 mots-clés
 
 ## 🎯 Plan d'Action Recommandé
 
-### Semaine 1-2 : Actions Critiques
-- Aucune action critique
-
-
-### Semaine 3-4 : Optimisations
-
-
-
 ---
 
-## 💡 Questions pour Claude/Cursor:
+## 📝 Notes
 
-1. Pour les **0 mots-clés prioritaires** à optimiser : quelle stratégie d'optimisation on-page recommandes-tu ?
-2. Pour les **0 mots-clés prioritaires** non classés : faut-il créer des pages dédiées ou optimiser des pages existantes ?
-3. Comment maintenir les **0 mots-clés prioritaires** en TOP 3 et éviter la régression ?
-4. Quel devrait être le planning d'optimisation sur les 4 prochaines semaines (priorisation) ?
-5. Stratégie de création de contenu : quels articles de blog créer pour capturer les mots-clés prioritaires non classés ?
-
+- Les positions sont calculées à partir des données de l'onglet "évolution"
+- La variation est calculée entre la première et la dernière des 4 dernières semaines
+- Les mots-clés avec "N/A" n'ont pas de données pour certaines dates
+- Priorité 2 = Prioritaire, Priorité 1 = Moyennement prioritaire
+- 📈 Amélioration = Position diminue (mieux classé)
+- 📉 Régression = Position augmente (moins bien classé)

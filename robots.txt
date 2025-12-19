@@ -12,6 +12,8 @@ Disallow: /css/
 Disallow: /js/
 Disallow: /images/
 Disallow: /elementor-hf/
+Disallow: /*/feed/
+Disallow: /feed/
 
 # Allow all important pages for SEO
 Allow: /index.html

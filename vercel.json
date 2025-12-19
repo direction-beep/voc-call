@@ -301,6 +301,31 @@
       "statusCode": 410
     },
     {
+      "source": "/centres-dappels-externalises-avantages-et-inconvenients/feed/",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
+      "source": "/pourquoi-travailler-avec-un-call-center-base-en-france/feed/",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
+      "source": "/comment-voc-call-ameliore-la-relation-client-grace-a-une-assistance-24-7/feed/",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
+      "source": "/la-securite-des-donnees-dans-les-centres-dappels-ce-que-vous-devez-savoir/feed/",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
+      "source": "/:path*/feed/",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
       "source": "/:slug.html",
       "destination": "/:slug",
       "statusCode": 301

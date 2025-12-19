@@ -40,3 +40,10 @@ https://www.voc-call.fr/* https://voc-call.fr/:splat 301!
 
 # Blocage page technique Elementor (correction 404 décembre 2025)
 /elementor-hf/* /404.html 410!
+
+# Blocage feeds RSS/Atom d'articles supprimés (correction noindex décembre 2025)
+/centres-dappels-externalises-avantages-et-inconvenients/feed/ /404.html 410!
+/pourquoi-travailler-avec-un-call-center-base-en-france/feed/ /404.html 410!
+/comment-voc-call-ameliore-la-relation-client-grace-a-une-assistance-24-7/feed/ /404.html 410!
+/la-securite-des-donnees-dans-les-centres-dappels-ce-que-vous-devez-savoir/feed/ /404.html 410!
+/*/feed/ /404.html 410!

@@ -23,3 +23,20 @@ https://www.voc-call.fr/* https://voc-call.fr/:splat 301!
 /guides/pdfs/Guide-KPI-Service-Client.pdf /resources/guides/pdfs/Guide-KPI-Service-Client.pdf 301!
 /guides/pdfs/Guide-RGPD-Call-Center.pdf /resources/guides/pdfs/Guide-RGPD-Call-Center.pdf 301!
 /guides/pdfs/Template-Contrat-Externalisation.pdf /resources/guides/pdfs/Template-Contrat-Externalisation.pdf 301!
+
+# Redirections pages légales et services (correction 404 décembre 2025)
+/politique-de-confidentialite/ /legal/politique-confidentialite.html 301!
+/mentions-legales/ /legal/mentions-legales.html 301!
+/demander-un-devis/ /contact.html 301!
+/permanence-telephonique/ /services/permanence.html 301!
+/nos-services/ /services/index.html 301!
+
+# Redirections articles blog supprimés (correction 404 décembre 2025)
+/pourquoi-travailler-avec-un-call-center-base-en-france/ /blog.html 301!
+/centres-dappels-externalises-avantages-et-inconvenients/ /blog.html 301!
+/actualite-et-conseil/ /blog.html 301!
+/pourquoi-utiliser-un-support-par-chat-sur-votre-site-internet/ /blog.html 301!
+/comment-gerer-les-clients-mecontents/ /blog.html 301!
+
+# Blocage page technique Elementor (correction 404 décembre 2025)
+/elementor-hf/* /404.html 410!

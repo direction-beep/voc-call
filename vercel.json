@@ -216,6 +216,61 @@
       "statusCode": 301
     },
     {
+      "source": "/politique-de-confidentialite/",
+      "destination": "/legal/politique-confidentialite.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mentions-legales/",
+      "destination": "/legal/mentions-legales.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/demander-un-devis/",
+      "destination": "/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/permanence-telephonique/",
+      "destination": "/services/permanence.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/nos-services/",
+      "destination": "/services/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/pourquoi-travailler-avec-un-call-center-base-en-france/",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/centres-dappels-externalises-avantages-et-inconvenients/",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualite-et-conseil/",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/pourquoi-utiliser-un-support-par-chat-sur-votre-site-internet/",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/comment-gerer-les-clients-mecontents/",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/elementor-hf/:path*",
+      "destination": "/404.html",
+      "statusCode": 410
+    },
+    {
       "source": "/:slug.html",
       "destination": "/:slug",
       "statusCode": 301

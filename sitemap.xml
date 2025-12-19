@@ -67,35 +67,35 @@
   
   <!-- Pages principales -->
   <url>
-    <loc>https://voc-call.fr/about.html</loc>
+    <loc>https://voc-call.fr/about</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog.html</loc>
+    <loc>https://voc-call.fr/blog</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/contact.html</loc>
+    <loc>https://voc-call.fr/contact</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/careers.html</loc>
+    <loc>https://voc-call.fr/careers</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/testimonials.html</loc>
+    <loc>https://voc-call.fr/testimonials</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -103,70 +103,70 @@
   
   <!-- Services -->
   <url>
-    <loc>https://voc-call.fr/services/index.html</loc>
+    <loc>https://voc-call.fr/services</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/service-client.html</loc>
+    <loc>https://voc-call.fr/services/service-client</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/helpdesk.html</loc>
+    <loc>https://voc-call.fr/services/helpdesk</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/prospection.html</loc>
+    <loc>https://voc-call.fr/services/prospection</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/relance-commerciale.html</loc>
+    <loc>https://voc-call.fr/services/relance-commerciale</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/telesecretariat.html</loc>
+    <loc>https://voc-call.fr/services/telesecretariat</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/permanence.html</loc>
+    <loc>https://voc-call.fr/services/permanence</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/standard-externalise.html</loc>
+    <loc>https://voc-call.fr/services/standard-externalise</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/gestion-reclamations.html</loc>
+    <loc>https://voc-call.fr/services/gestion-reclamations</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/services/back-office.html</loc>
+    <loc>https://voc-call.fr/services/back-office</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -174,28 +174,28 @@
   
   <!-- Articles Blog - Nouveaux (20 Décembre 2024) -->
   <url>
-    <loc>https://voc-call.fr/blog/prospection-telephonique-b2b-script-kpi.html</loc>
+    <loc>https://voc-call.fr/blog/prospection-telephonique-b2b-script-kpi</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/helpdesk-externalise-sla-outils-tarifs.html</loc>
+    <loc>https://voc-call.fr/blog/helpdesk-externalise-sla-outils-tarifs</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/standard-externalise-combien-ca-coute.html</loc>
+    <loc>https://voc-call.fr/blog/standard-externalise-combien-ca-coute</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/centre-appels-france-support-utilisateurs.html</loc>
+    <loc>https://voc-call.fr/blog/centre-appels-france-support-utilisateurs</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -203,154 +203,154 @@
   
   <!-- Articles Blog - Existants -->
   <url>
-    <loc>https://voc-call.fr/blog/comment-choisir-call-center-france-2025.html</loc>
+    <loc>https://voc-call.fr/blog/comment-choisir-call-center-france-2025</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/guide-homeshoring-recrutement.html</loc>
+    <loc>https://voc-call.fr/blog/guide-homeshoring-recrutement</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/externaliser-service-client-2025.html</loc>
+    <loc>https://voc-call.fr/blog/externaliser-service-client-2025</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/telesecretariat-vs-standard.html</loc>
+    <loc>https://voc-call.fr/blog/telesecretariat-vs-standard</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/rgpd-centre-appel.html</loc>
+    <loc>https://voc-call.fr/blog/rgpd-centre-appel</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/prospection-b2b-qualification-rdv.html</loc>
+    <loc>https://voc-call.fr/blog/prospection-b2b-qualification-rdv</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/permanence-telephonique-sla.html</loc>
+    <loc>https://voc-call.fr/blog/permanence-telephonique-sla</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/kpi-service-client.html</loc>
+    <loc>https://voc-call.fr/blog/kpi-service-client</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/centre-appel-france-pilier.html</loc>
+    <loc>https://voc-call.fr/blog/centre-appel-france-pilier</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/roi-externalisation-calcul.html</loc>
+    <loc>https://voc-call.fr/blog/roi-externalisation-calcul</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/externaliser-service-client-guide.html</loc>
+    <loc>https://voc-call.fr/blog/externaliser-service-client-guide</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/service-client-ecommerce-5-etoiles.html</loc>
+    <loc>https://voc-call.fr/blog/service-client-ecommerce-5-etoiles</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/telesecretariat-medical-agenda.html</loc>
+    <loc>https://voc-call.fr/blog/telesecretariat-medical-agenda</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/helpdesk-externalise-bonnes-pratiques.html</loc>
+    <loc>https://voc-call.fr/blog/helpdesk-externalise-bonnes-pratiques</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/homeshoring-qualite-productivite.html</loc>
+    <loc>https://voc-call.fr/blog/homeshoring-qualite-productivite</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/backoffice-digital-delais-reponse.html</loc>
+    <loc>https://voc-call.fr/blog/backoffice-digital-delais-reponse</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/permanence-telephonique-distance.html</loc>
+    <loc>https://voc-call.fr/blog/permanence-telephonique-distance</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/secretariat-telephonique-guide.html</loc>
+    <loc>https://voc-call.fr/blog/secretariat-telephonique-guide</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/prospection-telephonique-efficace.html</loc>
+    <loc>https://voc-call.fr/blog/prospection-telephonique-efficace</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/gestion-appels-telephoniques.html</loc>
+    <loc>https://voc-call.fr/blog/gestion-appels-telephoniques</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/devenir-teleconseiller-independant.html</loc>
+    <loc>https://voc-call.fr/blog/devenir-teleconseiller-independant</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/accueil-telephonique-professionnel.html</loc>
+    <loc>https://voc-call.fr/blog/accueil-telephonique-professionnel</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -358,42 +358,42 @@
   
   <!-- Pages Catégories Blog -->
   <url>
-    <loc>https://voc-call.fr/blog/categorie/call-center.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/call-center</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/categorie/externalisation.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/externalisation</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/categorie/homeshoring.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/homeshoring</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/categorie/permanence.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/permanence</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/categorie/prospection.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/prospection</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/blog/categorie/teleconseiller.html</loc>
+    <loc>https://voc-call.fr/blog/categorie/teleconseiller</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -401,21 +401,21 @@
   
   <!-- Pages Supplémentaires -->
   <url>
-    <loc>https://voc-call.fr/case-studies/ecommerce-service-client-5-etoiles.html</loc>
+    <loc>https://voc-call.fr/case-studies/ecommerce-service-client-5-etoiles</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/partners/index.html</loc>
+    <loc>https://voc-call.fr/partners/index</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/resources/index.html</loc>
+    <loc>https://voc-call.fr/resources/index</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -423,21 +423,21 @@
   
   <!-- Pages légales -->
   <url>
-    <loc>https://voc-call.fr/legal/mentions-legales.html</loc>
+    <loc>https://voc-call.fr/legal/mentions-legales</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/legal/politique-confidentialite.html</loc>
+    <loc>https://voc-call.fr/legal/politique-confidentialite</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://voc-call.fr/legal/cookies.html</loc>
+    <loc>https://voc-call.fr/legal/cookies</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

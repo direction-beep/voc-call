@@ -127,57 +127,77 @@
     },
     {
       "source": "/gestion-reclamations",
-      "destination": "/services/gestion-reclamations.html",
+      "destination": "/services/gestion-reclamations",
       "statusCode": 301
     },
     {
       "source": "/helpdesk",
-      "destination": "/services/helpdesk.html",
+      "destination": "/services/helpdesk",
       "statusCode": 301
     },
     {
       "source": "/permanence",
-      "destination": "/services/permanence.html",
+      "destination": "/services/permanence",
       "statusCode": 301
     },
     {
       "source": "/prospection",
-      "destination": "/services/prospection.html",
+      "destination": "/services/prospection",
       "statusCode": 301
     },
     {
       "source": "/relance-commerciale",
-      "destination": "/services/relance-commerciale.html",
+      "destination": "/services/relance-commerciale",
       "statusCode": 301
     },
     {
       "source": "/service-client",
-      "destination": "/services/service-client.html",
+      "destination": "/services/service-client",
       "statusCode": 301
     },
     {
       "source": "/standard-externalise",
-      "destination": "/services/standard-externalise.html",
+      "destination": "/services/standard-externalise",
       "statusCode": 301
     },
     {
       "source": "/telesecretariat",
-      "destination": "/services/telesecretariat.html",
+      "destination": "/services/telesecretariat",
       "statusCode": 301
     },
     {
       "source": "/back-office",
-      "destination": "/services/back-office.html",
+      "destination": "/services/back-office",
       "statusCode": 301
     },
     {
       "source": "/externalisation-service-client",
-      "destination": "/services/externalisation-service-client.html",
+      "destination": "/services/externalisation-service-client",
       "statusCode": 301
     },
     {
       "source": "/secretariat-telephonique",
-      "destination": "/services/secretariat-telephonique.html",
+      "destination": "/services/secretariat-telephonique",
+      "statusCode": 301
+    },
+    {
+      "source": "/devenir-teleconseiller",
+      "destination": "/careers",
+      "statusCode": 301
+    },
+    {
+      "source": "/devenir-teleconseiller/",
+      "destination": "/careers",
+      "statusCode": 301
+    },
+    {
+      "source": "/qui-sommes-nous",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/qui-sommes-nous/",
+      "destination": "/about",
       "statusCode": 301
     },
     {
@@ -217,12 +237,12 @@
     },
     {
       "source": "/politique-de-confidentialite/",
-      "destination": "/legal/politique-confidentialite.html",
+      "destination": "/legal/politique-confidentialite",
       "statusCode": 301
     },
     {
       "source": "/mentions-legales/",
-      "destination": "/legal/mentions-legales.html",
+      "destination": "/legal/mentions-legales",
       "statusCode": 301
     },
     {
@@ -232,12 +252,22 @@
     },
     {
       "source": "/permanence-telephonique/",
-      "destination": "/services/permanence.html",
+      "destination": "/services/permanence",
       "statusCode": 301
     },
     {
       "source": "/nos-services/",
-      "destination": "/services/index.html",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
       "statusCode": 301
     },
     {

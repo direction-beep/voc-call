@@ -249,6 +249,7 @@ ul {
 .hero-container .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    display: block;
 }
 
 .hero-description {

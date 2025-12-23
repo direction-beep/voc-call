@@ -1039,9 +1039,11 @@ h3 {
 
 /* Footer */
 .footer {
-    background: var(--dz-dark);
+    background: linear-gradient(135deg, var(--dz-primary-dark) 0%, var(--dz-dark) 100%);
     color: var(--dz-white);
-    padding: 50px 0 20px;
+    padding: 70px 0 25px;
+    margin-top: 80px;
+    border-top: 3px solid var(--dz-secondary);
 }
 
 .footer-grid {
@@ -1087,20 +1089,26 @@ h3 {
 }
 
 .footer-col ul li a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 2px 0;
 }
 
 .footer-col ul li a:hover {
-    color: var(--dz-white);
+    color: var(--dz-accent);
+    transform: translateX(5px);
+    text-decoration: underline;
 }
 
 .footer-bottom {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
 }
 
 /* Equipe Section */

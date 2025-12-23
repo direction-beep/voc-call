@@ -1053,14 +1053,28 @@ h3 {
 
 .footer-col h4 {
     color: var(--dz-white);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .footer-col p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
     margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.footer-col p a {
+    color: var(--dz-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col p a:hover {
+    color: var(--dz-white);
+    text-decoration: underline;
 }
 
 .footer-col ul {
@@ -1226,6 +1240,24 @@ h3 {
     
     .hero-form {
         padding: 30px 20px;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .faq-item {
+        padding: 20px;
+    }
+    
+    .breadcrumbs {
+        padding: 12px 0;
+        font-size: 0.85rem;
     }
     
     section {

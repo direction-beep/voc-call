@@ -758,6 +758,15 @@ section:nth-child(even) {
 .advantage-icon {
     font-size: 3rem;
     margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advantage-icon i {
+    font-size: 3rem;
+    color: var(--color-primary);
 }
 
 .advantage h3 {

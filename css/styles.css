@@ -231,11 +231,37 @@ ul {
     align-items: center;
 }
 
-.hero-content {
+/* Hero pour page d'accueil avec formulaire */
+.hero .container .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
     align-items: center;
+}
+
+/* Hero pour pages de villes (avec hero-container) */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.hero-container .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-description {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    margin-bottom: 30px;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .hero-title {

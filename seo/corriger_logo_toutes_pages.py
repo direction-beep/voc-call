@@ -55,8 +55,12 @@ def corriger_logo(filepath):
     if header_match:
         header_actuel = header_match.group(0)
         
-        # Si le logo image n'est pas présent, remplacer le header
-        if 'logo-demenagement-zen.svg' not in header_actuel and 'logo-demenagement-zen.png' not in header_actuel:
+        # Vérifier si c'est juste du texte sans image
+        has_logo_img = '<img' in header_actuel and ('logo-demenagement-zen.svg' in header_actuel or 'logo-demenagement-zen.png' in header_actuel)
+        has_text_only = 'class="logo">Déménagement Zen</a>' in header_actuel or 'class="logo">[^<]*</a>' in header_actuel
+        
+        # Si le logo image n'est pas présent OU si c'est juste du texte, remplacer
+        if not has_logo_img or has_text_only:
             # Remplacer le header
             content = re.sub(
                 r'<!-- Header -->.*?</header>',
@@ -64,8 +68,8 @@ def corriger_logo(filepath):
                 content,
                 flags=re.DOTALL
             )
-        # Si le menu n'est pas standard, corriger
-        elif 'carte-france.html' not in header_actuel or 'index.html#devis' not in header_actuel:
+        # Si le menu n'est pas standard, corriger aussi
+        elif 'carte-france.html' not in header_actuel or 'index.html#devis' not in header_actuel or 'Accueil' not in header_actuel:
             # Remplacer le header
             content = re.sub(
                 r'<!-- Header -->.*?</header>',

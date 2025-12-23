@@ -56,22 +56,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .nav-logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .nav-logo .logo {
     display: flex;
     align-items: center;
+    line-height: 1;
 }
 
 .nav-logo img {
     height: 40px;
     width: auto;
     display: block;
+    max-width: 150px;
 }
 
 .nav-logo span {

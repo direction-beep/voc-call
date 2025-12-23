@@ -144,10 +144,25 @@ ul {
     justify-content: space-between;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
 .nav-logo .logo {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-logo .logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+    max-width: 150px;
 }
 
 .nav-menu {

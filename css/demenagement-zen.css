@@ -236,9 +236,10 @@ body {
 
 .hero-description {
     font-size: clamp(1.1rem, 2vw, 1.25rem);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     opacity: 0.95;
-    line-height: 1.7;
+    line-height: 1.8;
+    max-width: 700px;
 }
 
 .hero-stats {
@@ -284,12 +285,18 @@ body {
 .btn-primary {
     background: var(--dz-white);
     color: var(--dz-primary);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:hover {
     background: var(--dz-light-gray);
-    transform: translateY(-2px);
-    box-shadow: var(--dz-shadow-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -381,26 +388,81 @@ body {
     margin-top: 20px;
 }
 
+/* Breadcrumbs */
+.breadcrumbs {
+    background: var(--dz-light-gray);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(14, 69, 128, 0.1);
+}
+
+.breadcrumbs ol {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: '›';
+    color: var(--dz-gray);
+    margin-left: 10px;
+}
+
+.breadcrumbs a {
+    color: var(--dz-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--dz-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    color: var(--dz-gray);
+}
+
 /* Sections */
 section {
-    padding: 60px 0;
+    padding: 80px 0;
+}
+
+section:first-of-type {
+    padding-top: 40px;
 }
 
 .section-intro {
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     color: var(--dz-gray);
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
     text-align: center;
-    line-height: 1.7;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--dz-primary);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+h2 + .section-intro {
+    margin-top: 15px;
 }
 
 h3 {
@@ -412,12 +474,18 @@ h3 {
 
 /* Intro Section */
 .intro-section {
-    background: var(--dz-light-gray);
+    background: linear-gradient(to bottom, var(--dz-light-gray) 0%, var(--dz-white) 100%);
+    padding: 80px 0;
 }
 
 .intro-content {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.intro-content h2 {
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 .intro-content p {
@@ -427,43 +495,79 @@ h3 {
     color: var(--dz-dark);
 }
 
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-content strong {
+    color: var(--dz-primary);
+    font-weight: 600;
+}
+
 /* Services Section */
 .services-section {
     background: var(--dz-white);
+    position: relative;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(14, 69, 128, 0.2), transparent);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        gap: 35px;
+    }
 }
 
 .service-card {
     background: var(--dz-white);
-    padding: 30px;
+    padding: 35px;
     border-radius: var(--dz-border-radius);
-    box-shadow: var(--dz-shadow);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(14, 69, 128, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(14, 69, 128, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--dz-shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(14, 69, 128, 0.15);
+    border-color: var(--dz-primary);
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(135deg, var(--dz-primary) 0%, var(--dz-secondary) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--dz-white);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(14, 69, 128, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .service-card h3 {
@@ -474,8 +578,9 @@ h3 {
 
 .service-card p {
     color: var(--dz-gray);
-    line-height: 1.7;
-    margin-bottom: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    flex-grow: 1;
 }
 
 .service-card ul {
@@ -756,26 +861,47 @@ h3 {
 
 .faq-list {
     max-width: 900px;
-    margin: 40px auto 0;
+    margin: 50px auto 0;
 }
 
 .faq-item {
-    background: var(--dz-light-gray);
-    padding: 25px;
+    background: var(--dz-white);
+    padding: 30px;
     border-radius: var(--dz-border-radius);
     margin-bottom: 20px;
-    border-left: 4px solid var(--dz-primary);
+    border: 1px solid rgba(14, 69, 128, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--dz-primary);
+    transform: translateX(5px);
 }
 
 .faq-item h3 {
     color: var(--dz-primary);
     margin-bottom: 15px;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .faq-item p {
     color: var(--dz-gray);
-    line-height: 1.7;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.faq-item p a {
+    color: var(--dz-primary);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.faq-item p a:hover {
+    color: var(--dz-secondary);
 }
 
 /* Devis Section */

@@ -119,10 +119,10 @@ def main():
     
     for page in sorted(PAGES):
         if uniformiser_page(page):
-            print(f"  ✓ Corrigé: {page}")
+            print(f"  CORRIGE: {page}")
             corriges += 1
         else:
-            print(f"  → OK: {page}")
+            print(f"  OK: {page}")
             deja_ok += 1
     
     print(f"\n{'='*60}")

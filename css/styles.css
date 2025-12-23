@@ -239,6 +239,14 @@ ul {
     align-items: center;
 }
 
+/* Hero pour pages avec formulaire dans hero-content (structure différente) */
+.hero .container > .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
 /* Hero pour pages de villes (avec hero-container) */
 .hero-container {
     max-width: 1200px;
@@ -1019,6 +1027,15 @@ section:nth-child(even) {
     .hero-stats {
         flex-direction: column;
         gap: var(--spacing-md);
+    }
+    
+    .hero .container .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-form {
+        padding: var(--spacing-lg);
     }
 }
 

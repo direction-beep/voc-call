@@ -181,23 +181,33 @@
       "statusCode": 301
     },
     {
-      "source": "/devenir-teleconseiller",
-      "destination": "/careers",
+      "source": "/about",
+      "destination": "/qui-sommes-nous",
+      "statusCode": 301
+    },
+    {
+      "source": "/about/",
+      "destination": "/qui-sommes-nous",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers",
+      "destination": "/devenir-teleconseiller",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/",
+      "destination": "/devenir-teleconseiller",
       "statusCode": 301
     },
     {
       "source": "/devenir-teleconseiller/",
-      "destination": "/careers",
-      "statusCode": 301
-    },
-    {
-      "source": "/qui-sommes-nous",
-      "destination": "/about",
+      "destination": "/devenir-teleconseiller",
       "statusCode": 301
     },
     {
       "source": "/qui-sommes-nous/",
-      "destination": "/about",
+      "destination": "/qui-sommes-nous",
       "statusCode": 301
     },
     {

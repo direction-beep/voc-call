@@ -7,6 +7,68 @@
       "destination": "/index.html"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/back-office",
+      "destination": "/services/back-office.html"
+    },
+    {
+      "source": "/externalisation-service-client",
+      "destination": "/services/externalisation-service-client.html"
+    },
+    {
+      "source": "/gestion-reclamations",
+      "destination": "/services/gestion-reclamations.html"
+    },
+    {
+      "source": "/helpdesk",
+      "destination": "/services/helpdesk.html"
+    },
+    {
+      "source": "/permanence",
+      "destination": "/services/permanence.html"
+    },
+    {
+      "source": "/prospection",
+      "destination": "/services/prospection.html"
+    },
+    {
+      "source": "/relance-commerciale",
+      "destination": "/services/relance-commerciale.html"
+    },
+    {
+      "source": "/secretariat-telephonique",
+      "destination": "/services/secretariat-telephonique.html"
+    },
+    {
+      "source": "/service-client",
+      "destination": "/services/service-client.html"
+    },
+    {
+      "source": "/standard-externalise",
+      "destination": "/services/standard-externalise.html"
+    },
+    {
+      "source": "/telesecretariat",
+      "destination": "/services/telesecretariat.html"
+    },
+    {
+      "source": "/partenaires",
+      "destination": "/partners/index.html"
+    },
+    {
+      "source": "/ressources",
+      "destination": "/resources/index.html"
+    },
+    {
+      "source": "/temoignages",
+      "destination": "/temoignages.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/partners",

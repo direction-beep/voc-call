@@ -7,6 +7,23 @@
       "destination": "/index.html"
     }
   ],
+  "redirects": [
+    {
+      "source": "/partners",
+      "destination": "/partenaires",
+      "permanent": true
+    },
+    {
+      "source": "/resources",
+      "destination": "/ressources",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/temoignages",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
